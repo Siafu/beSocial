@@ -8,6 +8,10 @@ import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-ba
   moduleId: module.id,
 })
 export class ProfileEditComponent implements OnInit {
+  name: string;
+  office: string;
+  email: string;
+  interests: Array<string>;
   selectedIndex: number;
   matchOptionsList: Array<string> = ["Show Notifications", "Disable Notifications"];;
   matchOptions: Array<SegmentedBarItem>;
