@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import * as utils from "tns-core-modules/utils/utils";
+
+
 
 @Component({
   selector: 'ns-profile',
@@ -8,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+	constructor() {
 
-  ngOnInit() {
-  }
+	}
 
+	ngOnInit() {
+	}
+
+	openUrl(url: string) {
+		utils.openUrl(url);
+    }
 }
