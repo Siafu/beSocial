@@ -1,6 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AuthComponent } from './auth/auth.component';
@@ -21,7 +22,10 @@ import { TabsComponent } from './tabs/tabs.component';
     ],
     imports: [
         NativeScriptModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NativeScriptFormsModule,
+        ReactiveFormsModule,
+        FormsModule
     ],
     declarations: [
         AppComponent,

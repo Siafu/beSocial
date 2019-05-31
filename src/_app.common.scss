@@ -1,0 +1,85 @@
+@import '~nativescript-theme-core/scss/light';
+
+$primary: #093f96;
+$secondary: #f4f5f7;
+$disabled: #8e8f91;
+$accent: #5f8ce8;
+$error: #b71203;
+
+$btn-color: $primary;
+
+@import '~nativescript-theme-core/scss/index';
+
+ActionBar {
+    background: $primary;
+    color: $secondary;
+}
+
+
+.form-container {
+    align-content: center;
+    padding: 10;
+}
+
+.label {
+    width: 100%;
+    height: 20;
+    font-size: 16;
+    font-weight: bold;
+    color: $primary;
+}
+
+.label.invalid {
+    color: red;
+}
+
+.input-field {
+    margin-top: 0;
+    margin-bottom: 10;
+}
+
+.input {
+    font-size: 18;
+    placeholder-color: #A8A8A8;
+    color: black;
+}
+
+.invalid-label {
+    font-size: 10;
+    color: red;
+}
+
+.invalid {
+    color: red;
+}
+
+.input.ng-invalid.ng-touched {
+    border-bottom-color: red;
+    color: red;
+}
+
+.fas {
+    font-family: "Font Awesome 5 Free", "fa-solid-900";
+    font-weight: 900;
+}
+
+.submit-btn {
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    align-content: center;
+    background-color: $primary;
+    color: white;
+    border-radius: 8;
+    height: 60;
+    text-align: center;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 26;
+    text-align: center;
+    color: pink;
+    font-weight: bold;
+    margin-top: 10;
+}
