@@ -1,10 +1,14 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
+import { AuthComponent } from './auth/auth.component';
+import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
+import { TabsComponent } from './tabs/tabs.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -18,12 +22,18 @@ import { ItemDetailComponent } from "./item/item-detail.component";
     ],
     imports: [
         NativeScriptModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NativeScriptFormsModule,
+        ReactiveFormsModule,
+        FormsModule
     ],
     declarations: [
         AppComponent,
-        ItemsComponent,
-        ItemDetailComponent
+        AuthComponent,
+        ActionBarComponent,
+        ProfileComponent,
+        HomeComponent,
+        TabsComponent,
     ],
     providers: [],
     schemas: [
