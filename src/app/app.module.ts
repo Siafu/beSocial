@@ -5,6 +5,9 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AuthComponent } from './auth/auth/auth.component';
 import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
+import { TabsComponent } from './tabs/tabs.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -24,6 +27,9 @@ import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component'
         AppComponent,
         AuthComponent,
         ActionBarComponent,
+        ProfileComponent,
+        HomeComponent,
+        TabsComponent,
     ],
     providers: [],
     schemas: [
