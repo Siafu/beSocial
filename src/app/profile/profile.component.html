@@ -1,4 +1,4 @@
-<ActionBar title="Profile">
+<ns-action-bar title="Profile" [hasMenu]="true">
     <ActionItem
         (tap)="actionExecute()"
         android.position="actionBarIfRoom"
@@ -6,7 +6,7 @@
         [text]="isEdit ? 'Save' : 'Edit'"
     ></ActionItem>
     <NavigationButton text="Back"></NavigationButton>
-</ActionBar>
+</ns-action-bar>
 
 <GridLayout class="animate-fadeInUp-delay-0ms">
     <ScrollView orientation="vertical">
