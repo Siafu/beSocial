@@ -22,7 +22,6 @@ export class TabsComponent implements OnInit {
           [ { outlets: {
               home: ["home"],
               profile: ["profile"],
-              matchConfirmation: ["matchConfirmation"]
           } }],
           {relativeTo: this.active}
 

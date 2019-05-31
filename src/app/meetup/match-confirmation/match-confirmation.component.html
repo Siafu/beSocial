@@ -1,79 +1,84 @@
-<ns-action-bar title="MatchConfirmation">
-    <ActionItem ios.position="right" android.position="actionBar" pageTransition="slideLeft">
-        <Label text="Test"></Label>
-    </ActionItem>
-    <ActionItem ios.position="right" a ndroid.position="actionBar" pageTransition="slideLeft">
-        <Label text="Test2"></Label>
-    </ActionItem>
+<ns-action-bar title="Meeting Details">
+    <NavigationButton text="Back"></NavigationButton>
 </ns-action-bar>
 <FlexboxLayout class="page" alignItems="center" flexDirection="column" justifyContent="space-between" alignContent="Center">
-    <Label horizontalAlignment="center" [text]="meetingInfo.matchedTo.name"></Label>
+    <Label horizontalAlignment="center" [text]="meetingInfo.matchedTo.name" style="margin-top: 20px"></Label>
     <img height="200px" [src]="meetingInfo.matchedTo.profilePic"/>
 
-    <StackLayout class="hr-light"></StackLayout>
+    <StackLayout *ngIf="!editMode" class="hr-light"></StackLayout>
 
-    <StackLayout orientation="horizontal">
-        <Label
-            class="label"
-            width="auto"
-            [text]="'Meeting Details: '"
-        ></Label>
-        <Label
-            width="auto"
-            [text]="meetingInfo.meetingDetails"
-        ></Label>
-    </StackLayout>
+    <StackLayout class="edit">
+        <StackLayout orientation="horizontal" class="spacer">
+                <Label
+                    class="label"
+                    width="auto"
+                    [text]="'Meeting Details: '"
+                ></Label>
+                <Label *ngIf="!editMode"
+                    width="auto"
+                    [text]="meetingInfo.meetingDetails"
+                ></Label>
+                <TextField width="60%" *ngIf="editMode" class="input"></TextField>
+            </StackLayout>
+                
+            
+            <StackLayout orientation="horizontal" class="spacer">
+                <Label
+                    class="label"
+                    width="auto"
+                    text="Date: "
+                ></Label>
+                <Label
+                    *ngIf="!editMode" 
+                    [text]="meetingInfo.Date"
+                ></Label>
+            </StackLayout>
+                
+            <StackLayout orientation="horizontal" class="spacer">
+                <Label
+                    class="label"
+                    width="auto"
+                    text="Time: "
+                ></Label>
+                <Label
+                    *ngIf="!editMode" 
+                    width="auto"
+                    [text]="meetingInfo.Time"
+                ></Label>
+            </StackLayout>
+                
+            <StackLayout orientation="horizontal" class="spacer">
+                <Label
+                    class="label"
+                    width="auto"
+                    text="Location: "
+                ></Label>
+                <Label
+                    *ngIf="!editMode" 
+                    width="auto"
+                    [text]="meetingInfo.Location"
+                ></Label>
+                <TextField width="60%" *ngIf="editMode" class="input"></TextField>
+            </StackLayout>
+            
         
-    
-    <StackLayout orientation="horizontal">
-        <Label
-            class="label"
-            width="auto"
-            text="Date: "
-        ></Label>
-        <Label
-            [text]="meetingInfo.Date"
-        ></Label>
+            <StackLayout orientation="horizontal" class="spacer">
+                <Label
+                    class="label"
+                    width="auto"
+                    text="Comments: "
+                ></Label>
+                <Label
+                    *ngIf="!editMode" 
+                    width="auto"
+                    [text]="meetingInfo.Comments"
+                ></Label>
+                <TextField width="60%" *ngIf="editMode" class="input"></TextField>
+            </StackLayout>
     </StackLayout>
-        
-    <StackLayout orientation="horizontal">
-        <Label
-            class="label"
-            width="auto"
-            text="Time: "
-        ></Label>
-        <Label
-            width="auto"
-            [text]="meetingInfo.Time"
-        ></Label>
-    </StackLayout>
-        
-    <StackLayout orientation="horizontal">
-        <Label
-            class="label"
-            width="auto"
-            text="Location: "
-        ></Label>
-        <Label
-            width="auto"
-            [text]="meetingInfo.Location"
-        ></Label>
-    </StackLayout>
-    
 
-    <StackLayout orientation="horizontal">
-        <Label
-            class="label"
-            width="auto"
-            text="Comments: "
-        ></Label>
-        <Label
-            width="auto"
-            [text]="meetingInfo.Comments"
-        ></Label>
-    </StackLayout>
     
-    <StackLayout class="hr-light"></StackLayout>
+    <StackLayout *ngIf="!editMode" class="hr-light"></StackLayout>
 
     <StackLayout orientation="horizontal">
         <Label
@@ -100,11 +105,11 @@
         ></Button>
         <Button
             class='btn btn-cancel'
-            text="Cancel"
+            text="Postpone"
             width="30%"
         ></Button>
         <Button
-            class='login-btn'
+            class='btn'
             text="MAP"
             width="30%"
         ></Button>

@@ -1,1 +1,17 @@
 /* Add mobile styles for the component here.  */
+
+
+.edit {
+    border-radius: 15;
+    background-color: #eeeeee;
+    padding: 18;
+    width: 85%;
+}
+
+TextField {
+    background-color: white;
+}
+
+.spacer {
+    margin-top: 25px;
+}

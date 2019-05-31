@@ -9,11 +9,11 @@ import { MatchConfirmationComponent } from "./meetup/match-confirmation/match-co
 
 const routes: Routes = [
     { path: '', component: AuthComponent },
+    { path: 'meetup/confirm', component: MatchConfirmationComponent },
     { path: 'tabs', component: TabsComponent, children:[
         { path: 'home', component: HomeComponent, outlet:'home' },
         { path: 'profile', component: ProfileComponent, outlet: 'profile'},
         { path: '', redirectTo: '/tabs', pathMatch: 'full' },
-        { path: 'matchConfirmation', component: MatchConfirmationComponent, outlet: 'matchConfirmation'},
     ]}
 ];
 

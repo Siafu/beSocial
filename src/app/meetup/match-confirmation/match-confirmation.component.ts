@@ -3,7 +3,6 @@ import { Page } from "tns-core-modules/ui/page/page";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { RouterExtensions } from "nativescript-angular/router";
 import { TextField } from "tns-core-modules/ui/text-field";
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'ns-match-confirmation',
@@ -13,7 +12,6 @@ import { Router } from '@angular/router';
 })
 export class MatchConfirmationComponent implements OnInit {
   meetingInfo = {
-
     matchedTo: {
       name: 'Luffy',
       profilePic: 'https://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/monkey-d-luffy-one-piece-53.3.jpg'
@@ -23,11 +21,14 @@ export class MatchConfirmationComponent implements OnInit {
     Time: '3:50pm',
     Location: 'NYC',
     Comments: 'its a test'
-
   }
-  constructor(private router: Router) { }
+
+  private editMode: boolean;
+
+  constructor() { }
 
   ngOnInit() {
+    this.editMode = true;
   }
 
 }
