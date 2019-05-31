@@ -24,8 +24,12 @@ export class ActionBarComponent implements OnInit {
         return isAndroid;
     }
 
+    get canGoback() {
+        return this.router.canGoBack();
+    }
+
     onGoBack() {
-        this.router.backToPreviousPage();
+        return this.router.backToPreviousPage()
     }
 
     onLoadedActionBar() {

@@ -83,3 +83,21 @@ ActionBar {
     font-weight: bold;
     margin-top: 10;
 }
+
+
+
+.drawer-container {
+    background: $primary;
+    /* horizontal-align: left; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btn {
+    border-width: 1;
+    border-color: pink;
+    border-radius: 30%;
+    width: 80%;
+    color: white;
+    margin:  5 0;
+}
