@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
+import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
   selector: 'ns-profile-edit',
@@ -16,7 +17,7 @@ export class ProfileEditComponent implements OnInit {
   matchOptionsList: Array<string> = ["Show Notifications", "Disable Notifications"];;
   matchOptions: Array<SegmentedBarItem>;
 
-  constructor() {
+  constructor(private router: RouterExtensions) {
     this.matchOptions = [];
     for (let i = 0; i < this.matchOptionsList.length; i++) {
       const item = new SegmentedBarItem();
@@ -40,5 +41,9 @@ export class ProfileEditComponent implements OnInit {
 
   editOffice() {
     console.log('Edit Office tapped')
+  }
+
+  onSaveTap() {
+    this.router.navigate(['/tabs'], { clearHistory: true });
   }
 }

@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import * as utils from "tns-core-modules/utils/utils";
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
 import { RouterExtensions } from "nativescript-angular/router";
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'ns-profile',
