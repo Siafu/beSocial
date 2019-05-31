@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -36,6 +37,7 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
         ProfileComponent,
         HomeComponent,
         TabsComponent,
+        ProfileEditComponent,
     ],
     providers: [],
     schemas: [

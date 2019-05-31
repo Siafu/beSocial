@@ -3,7 +3,7 @@
         (tap)="actionExecute()"
         android.position="actionBarIfRoom"
         ios.position="right"
-        [text]="isEdit ? 'Save' : 'Edit'"
+        text="Edit"
     ></ActionItem>
     <NavigationButton text="Back"></NavigationButton>
 </ns-action-bar>
@@ -14,17 +14,7 @@
             <Image row="0" col="0" src="~/images/profileimage.png" stretch="aspectFill"
                 class="profilePic"></Image>
             <Label row="1" col="0" text="{{ name }}" class="title-profile"
-                textAlignment="center"
-                [visibility]="isEdit ? 'collapse' : 'visible'"
-            ></Label>
-            <TextField
-                row="1" col="0"
-                textAlignment="center"
-                class="title-profile-edit"
-                autocorrect="false"
-                [(ngModel)]="name"
-                [visibility]="!isEdit ? 'collapse' : 'visible'"
-             ></TextField>
+                textAlignment="center"            ></Label>
 
             <GridLayout row="2" col="0" rows="auto, auto" columns="auto, auto"
                 class="additional-info">
@@ -32,42 +22,23 @@
                     row="0" col="0"
                     text="&#xf041;"
                     class="fa icon-additional-info"
-                    [visibility]="isEdit ? 'collapse' : 'visible'"
                 ></Label>
                 <Label
                     row="0" col="1"
                     text="{{ office }}"
                     class="fa description-additional-info"
-                    [visibility]="isEdit ? 'collapse' : 'visible'"
                  ></Label>
-                 <Button
-                    row="0" col="1"
-                    [visibility]="!isEdit ? 'collapse' : 'visible'"
-                    class="interest-edit-btn"
-                    text="Edit Office"
-                    (tap)="editOffice()"
-                 ></Button>
                 <Label
                     row="1" col="0"
                     text="&#xf041;"
                     class="fa icon-additional-info"
-                    [visibility]="isEdit ? 'collapse' : 'visible'"
                 ></Label>
                 <Label
                     row="1"
                     col="1"
                     text="{{ email }}"
                     class="fa description-additional-info"
-                    [visibility]="isEdit ? 'collapse' : 'visible'"
                 ></Label>
-                <TextField
-                    row="1"
-                    col="1"
-                    class="description-additional-info-edit"
-                    [visibility]="!isEdit ? 'collapse' : 'visible'"
-                    autocorrect="false"
-                    [(ngModel)]="email"
-                ></TextField>
             </GridLayout>
 
             <StackLayout
@@ -75,11 +46,6 @@
                 row="3"
                 col="0"
             >
-                <Label
-                    class="label"
-                    text="Match Preference"
-                    textWrap="true"
-                ></Label>
                 <SegmentedBar
                     [items]="matchOptions"
                     selectedIndex="{{ selectedIndex }}"
@@ -91,9 +57,7 @@
             <StackLayout
                 class="interests-container"
                 row="4"
-                col="0"
-                [visibility]="isEdit ? 'collapse' : 'visible'"
-            >
+                col="0"            >
                 <Label
                     class="interests-label"
                     text="Interests"
@@ -113,18 +77,6 @@
                 </ScrollView>
             </StackLayout>
 
-            <StackLayout
-                class="interests-container"
-                row="4"
-                col="0"
-                [visibility]="!isEdit ? 'collapse' : 'visible'"
-            >
-                <Button
-                    class="interest-edit-btn"
-                    text="Edit Interests"
-                    (tap)="editInterests()"
-                ></Button>
-            </StackLayout>
         </GridLayout>
     </ScrollView>
 </GridLayout>
