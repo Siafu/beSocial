@@ -26,6 +26,6 @@ export class TabsComponent implements OnInit {
           {relativeTo: this.active}
 
       );
+      this.page.actionBarHidden = true
   }
-
 }
