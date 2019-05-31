@@ -1,1 +1,59 @@
-/* Add mobile styles for the component here.  */
+.page {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .form {
+    margin-left: 30;
+    margin-right: 30;
+    flex-grow: 2;
+    vertical-align: middle;
+  }
+
+  .logo {
+    margin-bottom: 12;
+    height: 90;
+    font-weight: bold;
+  }
+
+  .header {
+    horizontal-align: center;
+    font-size: 25;
+    font-weight: 600;
+    margin-bottom: 70;
+    text-align: center;
+    color: #093f96;
+  }
+
+  .input-field {
+    margin-bottom: 25;
+  }
+
+  .btn-container {
+    padding: 15;
+  }
+
+  .signUp-container {
+    horizontal-align: center;
+  }
+
+  .signUp-btn-ctner {
+    padding: 10;
+  }
+
+  .login-btn {
+    position: relative;
+    bottom: 0px;
+    width: 60%;
+    align-content: center;
+    background-color: #093f96;
+    color: white;
+    border-radius: 8;
+    height: 60;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .login-btn:disabled {
+    background-color: gray;
+  }

@@ -1,2 +1,64 @@
-<ns-action-bar [hasMenu]="false" title="Login" [showBackButton] ="false"></ns-action-bar>
-<Button text="auth works!" class="btn btn-primary" nsRouterLink="/tabs"></Button>
+<FlexboxLayout class="page">
+    <StackLayout class="form">
+        <Label class="header" text="Be Social"></Label>
+
+        <GridLayout rows="auto, auto, auto" [formGroup]="form">
+            <StackLayout row="0" class="input-field">
+                <TextField
+                    class="input"
+                    hint="Email"
+                    keyboardType="email"
+                    returnKeyType="next"
+                    (returnPress)="focusPassword()"
+                    [autocorrect]="false"
+                    autocapitalizationType="none"
+                    formControlName="email"
+                    #emailEl
+                ></TextField>
+                <Label
+                    class="invalid-label"
+                    *ngIf="!emailControlIsValid"
+                    text="Please enter a valid email"
+                ></Label>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+
+            <StackLayout row="1" class="input-field">
+                <TextField
+                    class="input"
+                    hint="Password (Min 6 characters)"
+                    secure="true"
+                    [autocorrect]="false"
+                    autocapitalizationType="none"
+                    [returnKeyType]="done"
+                    formControlName="password"
+                    #passwordEl
+                ></TextField>
+                <Label
+                    class="invalid-label"
+                    *ngIf="!passwordControlIsValid"
+                    text="Must be at least 6 characters long"
+                ></Label>
+                <StackLayout class="hr-light"></StackLayout>
+                <StackLayout class="signUp-container">
+                    <StackLayout class="signUp-btn-ctner" row="0" col="1">
+                        <Button
+                            class="sign-up-btn"
+                            text="Forgot Password"
+                            (tap)="toggleForgotPassword()"
+                        ></Button>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout row="3" class="btn-container">
+                <Button
+                    class='login-btn'
+                    text="Login"
+                    [isEnabled]="form.valid"
+                    (tap)="submit()"
+                ></Button>
+            </StackLayout>
+        </GridLayout>
+    </StackLayout>
+</FlexboxLayout>
