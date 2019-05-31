@@ -40,13 +40,13 @@
                     class="fa description-additional-info"
                     [visibility]="isEdit ? 'collapse' : 'visible'"
                  ></Label>
-                 <TextField
+                 <Button
                     row="0" col="1"
-                    class="description-additional-info-edit"
                     [visibility]="!isEdit ? 'collapse' : 'visible'"
-                    autocorrect="false"
-                    [(ngModel)]="office"
-                 ></TextField>
+                    class="interest-edit-btn"
+                    text="Edit Office"
+                    (tap)="editOffice()"
+                 ></Button>
                 <Label
                     row="1" col="0"
                     text="&#xf041;"

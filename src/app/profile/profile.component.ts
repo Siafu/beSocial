@@ -53,4 +53,8 @@ export class ProfileComponent implements OnInit {
     editInterests() {
         console.log('Edit Interests tapped')
     }
+
+    editOffice() {
+        console.log('Edit Office tapped')
+    }
 }
