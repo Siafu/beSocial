@@ -1,24 +1,22 @@
 <ns-action-bar title="Meeting Details">
     <NavigationButton text="Back"></NavigationButton>
+    <ActionItem *ngIf="!editMode" ios.position="right" android.position="actionBar" pageTransition="slideLeft" (tap)="changeEditMode()">
+        <Label text="Edit"></Label>
+    </ActionItem>
 </ns-action-bar>
 <FlexboxLayout class="page" alignItems="center" flexDirection="column" justifyContent="space-between" alignContent="Center">
     <Label horizontalAlignment="center" [text]="meetingInfo.matchedTo.name" style="margin-top: 20px"></Label>
-    <img height="200px" [src]="meetingInfo.matchedTo.profilePic"/>
+    <Image height="200px" [src]="meetingInfo.matchedTo.profilePic"></Image>
 
-    <StackLayout *ngIf="!editMode" class="hr-light"></StackLayout>
+    <StackLayout class="hr-light"></StackLayout>
 
     <StackLayout class="edit">
         <StackLayout orientation="horizontal" class="spacer">
                 <Label
-                    class="label"
+                    class="header headline"
                     width="auto"
-                    [text]="'Meeting Details: '"
+                    [text]="'Meeting Details'"
                 ></Label>
-                <Label *ngIf="!editMode"
-                    width="auto"
-                    [text]="meetingInfo.meetingDetails"
-                ></Label>
-                <TextField width="60%" *ngIf="editMode" class="input"></TextField>
             </StackLayout>
                 
             
@@ -30,8 +28,9 @@
                 ></Label>
                 <Label
                     *ngIf="!editMode" 
-                    [text]="meetingInfo.Date"
+                    [text]="meetingInfo.meetingDetails.Date"
                 ></Label>
+                <!--<DatePicker *ngIf="editMode"></DatePicker>-->
             </StackLayout>
                 
             <StackLayout orientation="horizontal" class="spacer">
@@ -43,8 +42,9 @@
                 <Label
                     *ngIf="!editMode" 
                     width="auto"
-                    [text]="meetingInfo.Time"
+                    [text]="meetingInfo.meetingDetails.Time"
                 ></Label>
+                <!--<TimePicker *ngIf="editMode"></TimePicker>-->
             </StackLayout>
                 
             <StackLayout orientation="horizontal" class="spacer">
@@ -56,9 +56,10 @@
                 <Label
                     *ngIf="!editMode" 
                     width="auto"
-                    [text]="meetingInfo.Location"
+                    [text]="meetingInfo.meetingDetails.Location"
                 ></Label>
-                <TextField width="60%" *ngIf="editMode" class="input"></TextField>
+                <TextField width="60%" *ngIf="editMode" 
+                    class="input" [(ngModel)]="meetingInfo.meetingDetails.Location"></TextField>
             </StackLayout>
             
         
@@ -71,14 +72,15 @@
                 <Label
                     *ngIf="!editMode" 
                     width="auto"
-                    [text]="meetingInfo.Comments"
+                    [text]="meetingInfo.meetingDetails.Comments"
                 ></Label>
-                <TextField width="60%" *ngIf="editMode" class="input"></TextField>
+                <TextField width="60%" *ngIf="editMode" 
+                    class="input" [(ngModel)]="meetingInfo.meetingDetails.Comments"></TextField>
             </StackLayout>
     </StackLayout>
 
     
-    <StackLayout *ngIf="!editMode" class="hr-light"></StackLayout>
+    <StackLayout class="hr-light"></StackLayout>
 
     <StackLayout orientation="horizontal">
         <Label

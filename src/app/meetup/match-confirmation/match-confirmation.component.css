@@ -10,8 +10,18 @@
 
 TextField {
     background-color: white;
+    padding: 0px 5px 0px 5px;
 }
 
 .spacer {
     margin-top: 25px;
+}
+
+.headline {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+image {
+    border-radius: 50%;
 }

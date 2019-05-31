@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePicker } from "tns-core-modules/ui/date-picker";
+import { TimePicker } from "tns-core-modules/ui/time-picker";
 import { Page } from "tns-core-modules/ui/page/page";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { RouterExtensions } from "nativescript-angular/router";
+import { RouterExtensions, PageRoute } from "nativescript-angular/router";
 import { TextField } from "tns-core-modules/ui/text-field";
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'ns-match-confirmation',
@@ -16,19 +19,35 @@ export class MatchConfirmationComponent implements OnInit {
       name: 'Luffy',
       profilePic: 'https://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/monkey-d-luffy-one-piece-53.3.jpg'
     },
-    meetingDetails: 'the details',
-    Date: '05/31/2019',
-    Time: '3:50pm',
-    Location: 'NYC',
-    Comments: 'its a test'
+    meetingDetails: {
+      Date: '05/31/2019',
+      Time: '3:50pm',
+      Location: 'NYC',
+      Comments: 'its a test'
+    }
   }
 
   private editMode: boolean;
+  private isCreating: boolean;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private pageRoute: PageRoute) { }
 
   ngOnInit() {
-    this.editMode = true;
+    this.pageRoute.activatedRoute.subscribe(
+      activatedRoute => {
+        activatedRoute.paramMap.subscribe(paramMap => {
+          if(!paramMap.has('mode')) {
+             
+          } else {
+            this.editMode = paramMap.get('mode') !== 'display';
+          }
+        })
+      }
+    )
+  }
+
+  changeEditMode() {
+    this.editMode = !this.editMode;
   }
 
 }

@@ -14,8 +14,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToConfirmMeeting() {
-    this.router.navigate(['/meetup/confirm']);
+  goToRandomMeeting() {
+    this.router.navigate(['/meetup/confirm', 'create']);
   }
 
 }
