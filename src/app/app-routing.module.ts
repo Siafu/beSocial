@@ -9,6 +9,7 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 const routes: Routes = [
     { path: '', component: AuthComponent },
+    { path: 'profile-edit', component: ProfileEditComponent },
     { path: 'tabs', component: TabsComponent, children:[
         { path: 'home', component: HomeComponent, outlet:'home' },
         { path: 'profile', component: ProfileComponent, outlet: 'profile'},

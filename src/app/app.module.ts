@@ -10,11 +10,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
-<<<<<<< HEAD
 import { InterestModalComponent } from './profile/interest-modal/interest-modal.component';
-=======
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
->>>>>>> 8d34a4657cdea1dbf8eadf247af148e0ef6cdb07
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -40,12 +37,9 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
         ActionBarComponent,
         ProfileComponent,
         HomeComponent,
-<<<<<<< HEAD
-        TabsComponent
-=======
+        InterestModalComponent,
         TabsComponent,
-        ProfileEditComponent,
->>>>>>> 8d34a4657cdea1dbf8eadf247af148e0ef6cdb07
+        ProfileEditComponent
     ],
     providers: [],
     schemas: [
