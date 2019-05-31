@@ -9,6 +9,7 @@ import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component'
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -25,7 +26,8 @@ import { TabsComponent } from './tabs/tabs.component';
         AppRoutingModule,
         NativeScriptFormsModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        NativeScriptUISideDrawerModule
     ],
     declarations: [
         AppComponent,
