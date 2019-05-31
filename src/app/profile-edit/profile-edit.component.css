@@ -1,0 +1,72 @@
+.profilePic {
+    width: 150;
+    height: 150;
+    border-radius: 100;
+    margin: 32 32 16 32;
+    border-color: #4db8ff;
+    border-width: 1;
+}
+
+.title-profile-edit {
+    color: gray;
+}
+
+.listImage {
+    border-width: 1;
+    border-color: #fff;
+}
+
+.additional-info {
+    border-radius: 15;
+    background-color: transparent;
+    padding: 10;
+    width: 85%;
+}
+
+.icon-additional-info {
+    font-size: 17;
+    color: #557AAD;
+    text-align: center;
+    padding-top: 2;
+}
+
+.description-additional-info-edit {
+    font-size: 17;
+    color: gray;
+    margin-left: 8;
+    border-width: 1;
+    border-color: transparent;
+}
+
+.interests-container {
+    padding: 10;
+    width: 85%;
+}
+
+.match-pref-container {
+    padding: 10;
+    width: 85%;
+}
+
+.field-input {
+    border-color: lightgray;
+    align-content: center;
+    border-width: 1;
+    height: 50;
+    width: 100%;
+    text-align: center;
+    font-size: 16;
+    placeholder-color: #A8A8A8;
+    color: lightgray;
+    padding: 15;
+}
+
+.field-btn {
+    align-content: center;
+    height: 50;
+    width: 85%;
+    text-align: center;
+    font-size: 16;
+    color: blue;
+    background-color: transparent;
+}

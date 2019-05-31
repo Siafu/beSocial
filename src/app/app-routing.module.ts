@@ -5,6 +5,7 @@ import { AuthComponent } from './auth/auth.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 const routes: Routes = [
     { path: '', component: AuthComponent },

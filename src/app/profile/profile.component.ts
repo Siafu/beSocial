@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
     email: string;
     interests: Array<string>;
     selectedIndex: number;
-    matchOptionsList: Array<string> = ["My Office Only", "All Offices"];
+    matchOptionsList: Array<string> = ["Show Notifications", "Disable Notifications"];
     matchOptions: Array<SegmentedBarItem>;
 
 	constructor() {
@@ -43,18 +43,5 @@ export class ProfileComponent implements OnInit {
 
     actionExecute() {
         this.isEdit = !this.isEdit;
-    }
-
-    onSelectedIndexChange(args) {
-        let segmentedBar = <SegmentedBar>args.object;
-        this.selectedIndex = segmentedBar.selectedIndex;
-    }
-
-    editInterests() {
-        console.log('Edit Interests tapped')
-    }
-
-    editOffice() {
-        console.log('Edit Office tapped')
     }
 }
