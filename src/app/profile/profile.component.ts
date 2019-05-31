@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as utils from "tns-core-modules/utils/utils";
-
+import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
 
 
 @Component({
@@ -10,15 +10,47 @@ import * as utils from "tns-core-modules/utils/utils";
   moduleId: module.id,
 })
 export class ProfileComponent implements OnInit {
+    isEdit: Boolean;
+    name: string;
+    office: string;
+    email: string;
+    interests: Array<string>;
+    selectedIndex: number;
+    matchOptionsList: Array<string> = ["My Office Only", "All Offices"];
+    matchOptions: Array<SegmentedBarItem>;
 
 	constructor() {
-
+        this.matchOptions = [];
+        for (let i = 0; i < this.matchOptionsList.length; i++) {
+          const item = new SegmentedBarItem();
+          item.title = this.matchOptionsList[i];
+          this.matchOptions.push(item);
+        }
 	}
 
 	ngOnInit() {
+        this.isEdit = false;
+        this.name = 'Dennis Nedry';
+        this.office = 'New York, NY';
+        this.email = 'Dennis.Nedry@jp.com';
+        this.interests = ['Hacking', 'Computers', 'Dinosaur Embryos', 'Biosyn', 'Soda'];
+        this.selectedIndex = 0;
 	}
 
 	openUrl(url: string) {
 		utils.openUrl(url);
+    }
+
+    actionExecute() {
+        this.isEdit = !this.isEdit;
+    }
+
+    onSelectedIndexChange(args) {
+        let segmentedBar = <SegmentedBar>args.object;
+        this.selectedIndex = segmentedBar.selectedIndex;
+    }
+
+    editInterests() {
+        console.log('Edit Interests tapped')
     }
 }

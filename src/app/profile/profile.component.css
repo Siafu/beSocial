@@ -13,6 +13,10 @@
     font-weight: bold;
 }
 
+.title-profile-edit {
+    color: gray;
+}
+
 .listImage {
     border-width: 1;
     border-color: #fff;
@@ -22,22 +26,49 @@
     border-radius: 15;
     background: #eeeeee;
     padding: 18;
-    line-height: 18;
-    margin-top: 20;
     width: 85%;
 }
 
-.icon-aditional-info {
+.icon-additional-info {
     font-size: 17;
     color: #557AAD;
     text-align: center;
     padding-top: 2;
 }
 
-.description-aditional-info {
+.description-additional-info {
     font-size: 17;
     color:#000;
     margin-left: 8;
     border-width: 1;
     border-color: transparent;
+}
+
+.description-additional-info-edit {
+    font-size: 17;
+    color: gray;
+    margin-left: 8;
+    border-width: 1;
+    border-color: transparent;
+}
+
+.interests-container {
+    padding: 10;
+    width: 85%;
+}
+
+.match-pref-container {
+    padding: 10;
+    width: 85%;
+}
+
+.interests-label {
+    color: navy;
+    font-size: 18;
+    padding: 10;
+}
+
+.interests-edit-btn {
+    color: blue;
+    background-color: transparent;
 }

@@ -1,22 +1,130 @@
+<ActionBar title="Profile">
+    <ActionItem
+        (tap)="actionExecute()"
+        android.position="actionBarIfRoom"
+        ios.position="right"
+        [text]="isEdit ? 'Save' : 'Edit'"
+    ></ActionItem>
+    <NavigationButton text="Back"></NavigationButton>
+</ActionBar>
+
 <GridLayout class="animate-fadeInUp-delay-0ms">
     <ScrollView orientation="vertical">
         <GridLayout rows="auto, auto, auto, auto,auto" columns="*">
             <Image row="0" col="0" src="~/images/profileimage.png" stretch="aspectFill"
                 class="profilePic"></Image>
-            <Label row="1" col="0" text="Firstname Lastname" class="title-profile"
-                textAlignment="center"></Label>
+            <Label row="1" col="0" text="{{ name }}" class="title-profile"
+                textAlignment="center"
+                [visibility]="isEdit ? 'collapse' : 'visible'"
+            ></Label>
+            <TextField
+                row="1" col="0"
+                textAlignment="center"
+                class="title-profile-edit"
+                autocorrect="false"
+                [(ngModel)]="name"
+                [visibility]="!isEdit ? 'collapse' : 'visible'"
+             ></TextField>
 
             <GridLayout row="2" col="0" rows="auto, auto" columns="auto, auto"
                 class="additional-info">
-                <Label row="0" col="0" text="&#xf041;" class="fa icon-aditional-info"></Label>
-                <Label row="0" col="1" text="Home Office" class="fa description-aditional-info"></Label>
-                <Label row="0" col="1" text="Email" class="fa description-aditional-info"></Label>
-
-                <Label row="1" col="0" text="&#xf0c1;" class="fa icon-aditional-info"></Label>
-                <Label row="1" col="1" text="https://nativescript.org" (tap)="openUrl('https://nativescript.org')"
-                    class="fa description-aditional-info"></Label>
+                <Label
+                    row="0" col="0"
+                    text="&#xf041;"
+                    class="fa icon-additional-info"
+                    [visibility]="isEdit ? 'collapse' : 'visible'"
+                ></Label>
+                <Label
+                    row="0" col="1"
+                    text="{{ office }}"
+                    class="fa description-additional-info"
+                    [visibility]="isEdit ? 'collapse' : 'visible'"
+                 ></Label>
+                 <TextField
+                    row="0" col="1"
+                    class="description-additional-info-edit"
+                    [visibility]="!isEdit ? 'collapse' : 'visible'"
+                    autocorrect="false"
+                    [(ngModel)]="office"
+                 ></TextField>
+                <Label
+                    row="1" col="0"
+                    text="&#xf041;"
+                    class="fa icon-additional-info"
+                    [visibility]="isEdit ? 'collapse' : 'visible'"
+                ></Label>
+                <Label
+                    row="1"
+                    col="1"
+                    text="{{ email }}"
+                    class="fa description-additional-info"
+                    [visibility]="isEdit ? 'collapse' : 'visible'"
+                ></Label>
+                <TextField
+                    row="1"
+                    col="1"
+                    class="description-additional-info-edit"
+                    [visibility]="!isEdit ? 'collapse' : 'visible'"
+                    autocorrect="false"
+                    [(ngModel)]="email"
+                ></TextField>
             </GridLayout>
 
+            <StackLayout
+                class="match-pref-container"
+                row="3"
+                col="0"
+            >
+                <Label
+                    class="label"
+                    text="Match Preference"
+                    textWrap="true"
+                ></Label>
+                <SegmentedBar
+                    [items]="matchOptions"
+                    selectedIndex="{{ selectedIndex }}"
+                    (selectedIndexChange)="onSelectedIndexChange($event)"
+                    class="segmentedBar"
+                ></SegmentedBar>
+            </StackLayout>
+
+            <StackLayout
+                class="interests-container"
+                row="4"
+                col="0"
+                [visibility]="isEdit ? 'collapse' : 'visible'"
+            >
+                <Label
+                    class="interests-label"
+                    text="Interests"
+                    textWrap="true"
+                    textAlignment="center"
+                ></Label>
+                <ScrollView>
+                    <StackLayout>
+                        <ListView height="125" [items]="interests" (itemTap)="onItemTap($event)">
+                            <ng-template let-interest="item" let-i="index" let-odd="odd" let-even="even">
+                                <StackLayout orientation="horizontal" class="list-group-item" height="40">
+                                    <Label  [text]="interest"></Label>
+                                </StackLayout>
+                            </ng-template>
+                        </ListView>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+            <StackLayout
+                class="interests-container"
+                row="4"
+                col="0"
+                [visibility]="!isEdit ? 'collapse' : 'visible'"
+            >
+                <Button
+                    class="interest-edit-btn"
+                    text="Edit Interests"
+                    (tap)="editInterests()"
+                ></Button>
+            </StackLayout>
         </GridLayout>
     </ScrollView>
 </GridLayout>
