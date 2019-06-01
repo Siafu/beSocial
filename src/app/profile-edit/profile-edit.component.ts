@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
 import { RouterExtensions } from "nativescript-angular/router";
+import { ModalDialogService } from "nativescript-angular/modal-dialog";
+import { InterestModalComponent } from "../profile-edit/interest-modal/interest-modal.component";
+import { UiService } from "../shared/ui/ui.service";
 
 @Component({
   selector: 'ns-profile-edit',
@@ -17,7 +20,11 @@ export class ProfileEditComponent implements OnInit {
   matchOptionsList: Array<string> = ["Show Notifications", "Disable Notifications"];;
   matchOptions: Array<SegmentedBarItem>;
 
-  constructor(private router: RouterExtensions) {
+  constructor(
+    private router: RouterExtensions,
+    private modalDialog: ModalDialogService,
+    private uiService: UiService,
+    private viewRef: ViewContainerRef) {
     this.matchOptions = [];
     for (let i = 0; i < this.matchOptionsList.length; i++) {
       const item = new SegmentedBarItem();
@@ -36,11 +43,16 @@ export class ProfileEditComponent implements OnInit {
   }
 
   editInterests() {
-    console.log('Edit Interests tapped')
+    console.log('Edit Interests tapped');
+
   }
 
   editOffice() {
-    console.log('Edit Office tapped')
+    console.log('Edit Office tapped');
+    this.modalDialog.showModal(InterestModalComponent, {
+      fullscreen: true,
+      viewContainerRef: this.uiService.getRootVCRef() ? this.uiService.getRootVCRef() : this.viewRef
+    });
   }
 
   onSaveTap() {
