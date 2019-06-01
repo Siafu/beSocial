@@ -24,6 +24,8 @@ class names available for styling your app at https://docs.nativescript.org/ui/t
     <ListView [items]="users" class="list-group">
       <ng-template let-item="item">
         <CardView ripple="true" margin="5" class="whiteCard">
+                <Image src="~/images/profileimage.png" stretch="aspectFill"
+                class="profilePic"></Image>
           <Label
             [nsRouterLink]="['/user', item.id]"
             [text]="item.name"
