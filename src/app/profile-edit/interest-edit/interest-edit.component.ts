@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalDialogParams } from 'nativescript-angular/modal-dialog';
 import { RouterExtensions } from 'nativescript-angular/router';
 
 class Interest {
@@ -13,18 +12,17 @@ class Interest {
 }
 
 @Component({
-  selector: 'ns-interest-modal',
-  templateUrl: './interest-modal.component.html',
-  styleUrls: ['./interest-modal.component.css'],
+  selector: 'ns-interest-edit',
+  templateUrl: './interest-edit.component.html',
+  styleUrls: ['./interest-edit.component.css'],
   moduleId: module.id,
 })
-export class InterestModalComponent implements OnInit {
+export class InterestEditComponent implements OnInit {
     interestOptions: Array<Interest>;
     interestOptionsList = ["Games", "Sports", "Books", "TV", "Dinosaur Embryos",
     "Movies", "Hacking", "Computers", "Kung Fury", "Triceracop"];
 
-    constructor(private modalParams: ModalDialogParams,
-        private router: RouterExtensions) {
+    constructor(private router: RouterExtensions) {
 
     }
 
@@ -42,10 +40,13 @@ export class InterestModalComponent implements OnInit {
     }
 
     onDoneTap() {
-        this.modalParams.closeCallback("return value");
+        this.router.navigate(['/profile:/'])
     }
 
     addInterest() {
 
     }
+  onSaveTap() {
+    console.log('Save clicked');
+  }
 }
