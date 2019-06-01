@@ -4,7 +4,6 @@ import {
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
 import { RouterExtensions, PageRoute } from "nativescript-angular/router";
 import { ModalDialogService } from "nativescript-angular/modal-dialog";
-import { InterestModalComponent } from "../profile-edit/interest-modal/interest-modal.component";
 import { UiService } from "../shared/ui/ui.service";
 
 @Component({
