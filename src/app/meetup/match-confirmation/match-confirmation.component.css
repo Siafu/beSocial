@@ -22,11 +22,25 @@ TextField {
     font-weight: bold;
 }
 
+/*
 image {
-    border-radius: 50%;
+    border-radius: 100%;
 }
+*/
 
 .edit-time-btn {
     color: blue;
     background-color: transparent;
+}
+
+.submit-btn {
+    position: relative;
+    bottom: 0px;
+    margin-bottom: 25px;
+    width: 90%;
+    align-content: center;
+    border-radius: 8;
+    height: 50;
+    text-align: center;
+    font-weight: bold;
 }

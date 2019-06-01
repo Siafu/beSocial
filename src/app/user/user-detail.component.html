@@ -1,9 +1,62 @@
-<StackLayout padding="4">
-    <CardView ripple="true" margin="6">
-      <StackLayout>
-        <Label class="h2" [text]="user.id + '. '"></Label>
-        <Label class="h2" [text]="user.name"></Label>
-        <Label class="h4" [text]="user.title"></Label>
-      </StackLayout>
-    </CardView>
-  </StackLayout>
+<ns-action-bar title="User Details" [hasMenu]="false">
+  <NavigationButton text="Back"></NavigationButton>
+</ns-action-bar>
+<GridLayout class="animate-fadeInUp-delay-0ms">
+  <ScrollView orientation="vertical">
+      <GridLayout rows="auto, auto, auto, auto,auto" columns="*">
+          <Image row="0" col="0" src="~/images/profileimage.png" stretch="aspectFill"
+              class="profilePic"></Image>
+          <Label row="1" col="0" text="{{ user.name }}" class="title-profile"
+              textAlignment="center"            ></Label>
+
+          <GridLayout row="2" col="0" rows="auto, auto" columns="auto, auto"
+              class="additional-info">
+              <Label
+                  row="0" col="0"
+                  text="&#xf041;"
+                  class="fa icon-additional-info"
+              ></Label>
+              <Label
+                  row="0" col="1"
+                  text="New York"
+                  class="fa description-additional-info"
+               ></Label>
+              <Label
+                  row="1" col="0"
+                  text="&#xf041;"
+                  class="fa icon-additional-info"
+              ></Label>
+              <Label
+                  row="1"
+                  col="1"
+                  text="{{ user.email }}"
+                  class="fa description-additional-info"
+              ></Label>
+          </GridLayout>
+
+          <StackLayout
+              class="interests-container"
+              row="3"
+              col="0"            >
+              <Label
+                  class="interests-label"
+                  text="Interests"
+                  textWrap="true"
+                  textAlignment="center"
+              ></Label>
+              <ScrollView>
+                  <StackLayout>
+                      <ListView height="125" [items]="user.interests">
+                          <ng-template let-interest="item" let-i="index" let-odd="odd" let-even="even">
+                              <StackLayout orientation="horizontal" class="list-group-item" height="40">
+                                  <Label  [text]="interest.description"></Label>
+                              </StackLayout>
+                          </ng-template>
+                      </ListView>
+                  </StackLayout>
+              </ScrollView>
+          </StackLayout>
+          <Button row="4" col="0" (tap)="onSubmit()" text="Schedule Meetup" class="submit-btn"></Button>
+      </GridLayout>
+  </ScrollView>
+</GridLayout>
