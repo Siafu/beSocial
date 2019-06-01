@@ -10,9 +10,12 @@ import { InterestEditComponent } from "./profile-edit/interest-edit/interest-edi
 import { MatchConfirmationComponent } from "./meetup/match-confirmation/match-confirmation.component";
 import { EditTimeComponent } from "./meetup/edit-time/edit-time.component";
 import { EditDateComponent } from "./meetup/edit-date/edit-date.component";
+import { UserComponent } from "./user/user.component";
+import { UserDetailComponent } from "./user/user-detail.component";
 
 const routes: Routes = [
     { path: '', component: AuthComponent },
+    { path: "user/:id", component: UserDetailComponent },
     { path: 'interest-edit', component: InterestEditComponent },
     { path: 'profile/:mode', component: ProfileEditComponent },
     { path: 'edit-time', component: EditTimeComponent },
@@ -20,6 +23,7 @@ const routes: Routes = [
     { path: 'meetup/confirm/:mode', component: MatchConfirmationComponent },
     { path: 'tabs', component: TabsComponent, children:[
         { path: 'home', component: HomeComponent, outlet:'home' },
+        { path: "user", component: UserComponent, outlet:'user' },
         { path: 'profile', component: ProfileComponent, outlet: 'profile'},
         { path: '', redirectTo: '/tabs', pathMatch: 'full' },
     ]}
