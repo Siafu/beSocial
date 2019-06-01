@@ -1,18 +1,11 @@
-<<<<<<< HEAD
 import { Component, OnInit } from "@angular/core";
 import {
-    SegmentedBar,
-    SegmentedBarItem
 } from "tns-core-modules/ui/segmented-bar";
-import { RouterExtensions, PageRoute } from "nativescript-angular/router";
-=======
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
-import { RouterExtensions } from "nativescript-angular/router";
+import { RouterExtensions, PageRoute } from "nativescript-angular/router";
 import { ModalDialogService } from "nativescript-angular/modal-dialog";
 import { InterestModalComponent } from "../profile-edit/interest-modal/interest-modal.component";
 import { UiService } from "../shared/ui/ui.service";
->>>>>>> 577c073ab24dfae447ca0caa880900a2af3c75a1
 
 @Component({
     selector: "ns-profile-edit",
@@ -32,8 +25,10 @@ export class ProfileEditComponent implements OnInit {
         "Disable Notifications"
     ];
     matchOptions: Array<SegmentedBarItem>;
+    modalDialog: any;
+    uiService: any;
+    viewRef: any;
 
-<<<<<<< HEAD
     constructor(
         private router: RouterExtensions,
         private pageRoute: PageRoute
@@ -44,18 +39,6 @@ export class ProfileEditComponent implements OnInit {
             item.title = this.matchOptionsList[i];
             this.matchOptions.push(item);
         }
-=======
-  constructor(
-    private router: RouterExtensions,
-    private modalDialog: ModalDialogService,
-    private uiService: UiService,
-    private viewRef: ViewContainerRef) {
-    this.matchOptions = [];
-    for (let i = 0; i < this.matchOptionsList.length; i++) {
-      const item = new SegmentedBarItem();
-      item.title = this.matchOptionsList[i];
-      this.matchOptions.push(item);
->>>>>>> 577c073ab24dfae447ca0caa880900a2af3c75a1
     }
 
     ngOnInit() {
@@ -76,15 +59,6 @@ export class ProfileEditComponent implements OnInit {
         this.selectedIndex = segmentedBar.selectedIndex;
     }
 
-<<<<<<< HEAD
-    editInterests() {
-        console.log("Edit Interests tapped");
-    }
-
-    editOffice() {
-        console.log("Edit Office tapped");
-    }
-=======
   editInterests() {
     console.log('Edit Interests tapped');
 
@@ -97,7 +71,6 @@ export class ProfileEditComponent implements OnInit {
       viewContainerRef: this.uiService.getRootVCRef() ? this.uiService.getRootVCRef() : this.viewRef
     });
   }
->>>>>>> 577c073ab24dfae447ca0caa880900a2af3c75a1
 
     onSaveTap() {
         this.router.navigate(["/tabs"], { clearHistory: true });
