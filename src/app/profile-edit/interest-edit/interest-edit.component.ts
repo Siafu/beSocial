@@ -40,7 +40,7 @@ export class InterestEditComponent implements OnInit {
     }
 
     onDoneTap() {
-        this.router.navigate(['/profile:/'])
+        this.router.navigate(['/tabs'])
     }
 
     addInterest() {
