@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as utils from "tns-core-modules/utils/utils";
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
-
+import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
   selector: 'ns-profile',
@@ -16,10 +16,10 @@ export class ProfileComponent implements OnInit {
     email: string;
     interests: Array<string>;
     selectedIndex: number;
-    matchOptionsList: Array<string> = ["My Office Only", "All Offices"];
+    matchOptionsList: Array<string> = ["Show Notifications", "Disable Notifications"];
     matchOptions: Array<SegmentedBarItem>;
 
-	constructor() {
+	constructor(private router: RouterExtensions) {
         this.matchOptions = [];
         for (let i = 0; i < this.matchOptionsList.length; i++) {
           const item = new SegmentedBarItem();
@@ -37,24 +37,16 @@ export class ProfileComponent implements OnInit {
         this.selectedIndex = 0;
 	}
 
-	openUrl(url: string) {
-		utils.openUrl(url);
-    }
-
-    actionExecute() {
-        this.isEdit = !this.isEdit;
-    }
-
     onSelectedIndexChange(args) {
         let segmentedBar = <SegmentedBar>args.object;
         this.selectedIndex = segmentedBar.selectedIndex;
     }
 
-    editInterests() {
-        console.log('Edit Interests tapped')
+	openUrl(url: string) {
+		utils.openUrl(url);
     }
 
-    editOffice() {
-        console.log('Edit Office tapped')
+    onEditTap() {
+        this.router.navigate(['/profile/edit'], { clearHistory: false });
     }
 }

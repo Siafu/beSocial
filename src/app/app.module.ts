@@ -10,6 +10,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { InterestEditComponent } from './profile-edit/interest-edit/interest-edit.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -36,11 +38,13 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
         ProfileComponent,
         HomeComponent,
         TabsComponent,
+        ProfileEditComponent,
+        InterestEditComponent
     ],
     providers: [],
     schemas: [
         NO_ERRORS_SCHEMA
-    ]
+    ],
 })
 /*
 Pass your application module to the bootstrapModule function located in main.ts to start your app
