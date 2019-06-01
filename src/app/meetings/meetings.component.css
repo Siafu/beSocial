@@ -1,9 +1,13 @@
 .meetings-container {
     padding: 10;
-    width: 85%;
+    width: 100%;
 }
 
 .meet-status-container {
     padding: 10;
-    width: 85%;
+    width: 100%;
+}
+
+.label-items {
+    padding: 10;
 }

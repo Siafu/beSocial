@@ -27,6 +27,7 @@ export class MeetingsService {
     insertIntoMeeting(newMeeting): Array<Meeting> {
         this.meetings.push(newMeeting);
         this.userService.updateUserMeetings(this.authService.getUserID(), this.meetings);
+        console.log(`SERVICE: ${this.meetings}`);
         return this.meetings;
     }
 

@@ -103,6 +103,8 @@ export class MatchConfirmationComponent implements OnInit {
 
   onSubmitBtn() {
     let meeting = new Meeting(this.name, this.date, this.time);
+    console.log(meeting);
     this.meetingService.insertIntoMeeting(meeting);
+    this.router.navigate(['/tabs'], { clearHistory: true });
   }
 }
