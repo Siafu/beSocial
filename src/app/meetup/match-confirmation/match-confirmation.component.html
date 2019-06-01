@@ -6,7 +6,7 @@
 </ns-action-bar>
 <FlexboxLayout class="page" alignItems="center" flexDirection="column" justifyContent="space-between" alignContent="Center">
     <Label horizontalAlignment="center" [text]="meetingInfo.matchedTo.name" style="margin-top: 20px"></Label>
-    <Image height="300px" [src]="meetingInfo.matchedTo.profilePic"></Image>
+    <Image height="400px" [src]="meetingInfo.matchedTo.profilePic"></Image>
 
     <StackLayout class="hr-light"></StackLayout>
 
@@ -17,8 +17,19 @@
                     width="auto"
                     [text]="'Meeting Details'"
                 ></Label>
-            </StackLayout>
-
+        </StackLayout>
+        
+        <StackLayout orientation="horizontal" class="spacer">
+            <Label
+                class="label"
+                width="auto"
+                text="Meeting with: "
+            ></Label>
+            <Label
+                width="auto"
+                text="Luffy for now"
+            ></Label>
+        </StackLayout>
 
             <StackLayout orientation="horizontal" class="spacer">
                 <Label
@@ -110,11 +121,15 @@
     <StackLayout class="hr-light"></StackLayout>
 
     <StackLayout class="btn-container">
-        <SegmentedBar
+        <button class="submit-btn"
+            horizontalAlignment="center"
+            text="Submit"
+        ></button>
+        <!--<SegmentedBar
             [items]="confirmOptions"
             selectedIndex="{{ selectedIndex }}"
             (selectedIndexChange)="onSelectedIndexChange($event)"
             class="segmentedBar"
-        ></SegmentedBar>
+        ></SegmentedBar>-->
     </StackLayout>
 </FlexboxLayout>
