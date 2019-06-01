@@ -66,7 +66,7 @@
                 ></Label>
                 <ScrollView>
                     <StackLayout>
-                        <ListView height="125" [items]="interests" (itemTap)="onItemTap($event)">
+                        <ListView height="125" [items]="interests">
                             <ng-template let-interest="item" let-i="index" let-odd="odd" let-even="even">
                                 <StackLayout orientation="horizontal" class="list-group-item" height="40">
                                     <Label  [text]="interest"></Label>

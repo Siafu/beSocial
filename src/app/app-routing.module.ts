@@ -6,9 +6,11 @@ import { TabsComponent } from './tabs/tabs.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { InterestEditComponent } from "./profile-edit/interest-edit/interest-edit.component";
 
 const routes: Routes = [
     { path: '', component: AuthComponent },
+    { path: 'interest-edit', component: InterestEditComponent },
     { path: 'profile/:mode', component: ProfileEditComponent },
     { path: 'tabs', component: TabsComponent, children:[
         { path: 'home', component: HomeComponent, outlet:'home' },
