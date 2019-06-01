@@ -1,11 +1,10 @@
 <TabView androidTabsPosition ="bottom"
-            selectedTabTextColor="#ffc0cb"
-            androidSelectedTabHighlightColor="#ffc0cb">
-    <StackLayout *tabItem="{title: 'Home'}">
+            >
+    <StackLayout *tabItem="{title: 'home', iconSource: 'res://home' }">
         <page-router-outlet name="home">
         </page-router-outlet>
     </StackLayout>
-    <StackLayout *tabItem="{title: 'Profile'}" >
+    <StackLayout *tabItem="{title: 'Profile', iconSource: 'res://profile' }">
         <page-router-outlet name="profile">
         </page-router-outlet>
     </StackLayout>
