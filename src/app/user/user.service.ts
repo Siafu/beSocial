@@ -1,10 +1,12 @@
 import { Injectable } from "@angular/core";
 import { User } from "./user";
+import { Interest } from './interest';
 
 @Injectable({
     providedIn: "root"
 })
 export class UserService {
+    interest = new Interest(1, "Soccer")
     private users = new Array<User>(
         {
             id: 1,
@@ -35,7 +37,7 @@ export class UserService {
             name: "Sergio",
             title: "Midfielder",
             email: "Sergio@soccer.com",
-            interests: [],
+            interests: [this.interest],
             meetings: []
         },
         {
