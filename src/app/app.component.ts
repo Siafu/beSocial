@@ -13,6 +13,10 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { ViewContainerRef } from '@angular/core';
 import { EditTimeService } from './meetup/edit-time.service';
 import { EditDateService } from './meetup/edit-date.service';
+import { CardView } from 'nativescript-cardview';
+import { registerElement } from 'nativescript-angular';
+
+registerElement('CardView', () => CardView as any);
 
 @Component({
     selector: "ns-app",
