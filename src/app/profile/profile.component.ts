@@ -40,6 +40,7 @@ export class ProfileComponent implements OnInit {
         this.name = this.userService.getUser(this.userID).name;
         this.interests = this.userService.getUser(this.userID).interests;
         this.office = 'New York, NY';
+        this.email = this.userService.getUser(this.userID).email;
         this.selectedIndex = 0;
 	}
 
