@@ -3,7 +3,7 @@ import * as utils from "tns-core-modules/utils/utils";
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
 import { RouterExtensions } from "nativescript-angular/router";
 import { UserService } from "../user/user.service";
-import { InterestEditService } from '../profile-edit/interest-edit.service';
+import { AuthService } from '../auth/auth.service';
 import { Interest } from '../user/interest';
 
 @Component({
@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
 
     constructor(private router: RouterExtensions,
         private userService: UserService,
-        private interestEditService: InterestEditService) {
+        private authService: AuthService) {
         this.matchOptions = [];
         for (let i = 0; i < this.matchOptionsList.length; i++) {
           const item = new SegmentedBarItem();
@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
 
 	ngOnInit() {
         this.isEdit = false;
-        this.userID = this.interestEditService.getUserID();
+        this.userID = this.authService.getUserID();
         this.name = this.userService.getUser(this.userID).name;
         this.interests = this.userService.getUser(this.userID).interests;
         this.office = 'New York, NY';

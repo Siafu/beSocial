@@ -4,6 +4,7 @@ import { InterestOption } from '../interest-list-option';
 import { Interest } from '../../user/interest';
 import { UserService } from '../../user/user.service';
 import { InterestEditService } from '../interest-edit.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'ns-interest-edit',
@@ -17,7 +18,8 @@ export class InterestEditComponent implements OnInit {
     newInterests: Array<Interest>;
 
     constructor(private router: RouterExtensions, private userService: UserService,
-        private interestEditService: InterestEditService) {
+        private interestEditService: InterestEditService,
+        private authService: AuthService) {
 
     }
 
@@ -50,7 +52,7 @@ export class InterestEditComponent implements OnInit {
         }
       }
 
-      this.userService.updateUserInterests(this.interestEditService.getUserID(),
+      this.userService.updateUserInterests(this.authService.getUserID(),
         this.newInterests);
       this.router.navigate(['profile/:edit'], { clearHistory: true });
     }

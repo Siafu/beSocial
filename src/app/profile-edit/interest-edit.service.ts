@@ -14,10 +14,6 @@ export class InterestEditService {
             "Movies", "Hacking", "Computers", "Kung Fury", "Triceracop"];
     }
 
-    setInitialUserID(): void {
-        this.userID = 1;
-    }
-
     setInitialInterests(): void {
         this.interests = [];
     }
@@ -28,10 +24,6 @@ export class InterestEditService {
 
     getInterests(): Array<Interest> {
         return this.interests;
-    }
-
-    getUserID(): number {
-        return this.userID;
     }
 
     insertIntoInterestOptionsList(newInterest): Array<string> {

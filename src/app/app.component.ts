@@ -17,6 +17,7 @@ import { CardView } from 'nativescript-cardview';
 import { registerElement } from 'nativescript-angular';
 import { UserService } from './user/user.service';
 import { InterestEditService } from './profile-edit/interest-edit.service';
+import { AuthService } from './auth/auth.service';
 
 registerElement('CardView', () => CardView as any);
 
@@ -37,7 +38,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         private editTimeService: EditTimeService,
         private editDateService: EditDateService,
         private userService: UserService,
-        private interestEditService: InterestEditService
+        private interestEditService: InterestEditService,
+        private authService: AuthService
     ) {}
 
     ngOnInit() {
@@ -50,7 +52,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         this.editTimeService.setInitialTime();
         this.editDateService.setInitialDate();
         this.interestEditService.setInitialInterestOptionsList();
-        this.interestEditService.setInitialUserID();
         this.interestEditService.setInitialInterests();
     }
 

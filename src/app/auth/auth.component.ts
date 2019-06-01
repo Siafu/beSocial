@@ -3,6 +3,7 @@ import { Page } from "tns-core-modules/ui/page/page";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { RouterExtensions } from "nativescript-angular/router";
 import { TextField } from "tns-core-modules/ui/text-field";
+import { AuthService } from "../auth/auth.service";
 
 @Component({
   selector: 'ns-auth',
@@ -19,7 +20,8 @@ export class AuthComponent implements OnInit {
 
     constructor(
       private page: Page,
-      private router: RouterExtensions) {
+      private router: RouterExtensions,
+      private authService: AuthService) {
       this.page.actionBarHidden = true;
     }
 
@@ -61,6 +63,7 @@ export class AuthComponent implements OnInit {
     }
 
     login() {
+      this.authService.setInitialUserID();
       this.router.navigate(['/tabs'], { clearHistory: true });
     }
 
