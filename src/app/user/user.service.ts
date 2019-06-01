@@ -8,7 +8,7 @@ import { User } from './user';
 export class UserService {
 
   private users = new Array<User>(
-    { id: 1, name: "Ter Stegen", title: "Ter.Stegen", email: "Ter.Stegen@soccer.com", interests:[] },
+    { id: 1, name: "Ter Stegen", title: "Goalie", email: "Ter.Stegen@soccer.com", interests:[] },
     { id: 3, name: "Piqué", title: "Defender", email: "Piqué@soccer.com", interests:[] },
     { id: 4, name: "I. Rakitic", title: "Midfielder", email: "Ivan.Rakitic@soccer.com", interests:[] },
     { id: 5, name: "Sergio", title: "Midfielder", email: "Sergio@soccer.com", interests:[] },
