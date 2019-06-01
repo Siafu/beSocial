@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import { User } from './user'; 
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private items = new Array<User>(
+  private users = new Array<User>(
     { id: 1, name: "Ter Stegen", title: "Goalkeeper", interests:[] },
     { id: 3, name: "Piqué", title: "Defender", interests:[] },
     { id: 4, name: "I. Rakitic", title: "Midfielder", interests:[] },
@@ -32,12 +32,12 @@ export class UserService {
     { id: 25, name: "Masip", title: "Goalkeeper", interests:[] }
 );
 
-getItems(): Array<User> {
-    return this.items;
+getUsers(): Array<User> {
+    return this.users;
 }
 
-getItem(id: number): User {
-    return this.items.filter((item) => item.id === id)[0];
+getUser(id: number): User {
+    return this.users.filter((user) => user.id === id)[0];
 }
 
   constructor() { }
