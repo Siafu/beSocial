@@ -5,6 +5,7 @@ import { Page } from "tns-core-modules/ui/page/page";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { RouterExtensions, PageRoute } from "nativescript-angular/router";
 import { TextField } from "tns-core-modules/ui/text-field";
+import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
 import { ActivatedRoute, Params } from '@angular/router';
 import { EditTimeService } from '../edit-time.service';
 import { EditDateService } from '../edit-date.service';
@@ -33,10 +34,20 @@ export class MatchConfirmationComponent implements OnInit {
   private isCreating: boolean;
   private time: string;
   private date: string;
+  private confirmOptionsList: Array<string> = ["Confirm Meeting", "Postpone Meeting"];
+  private confirmOptions: Array<SegmentedBarItem>;
+  private selectedIndex: number;
 
   constructor(private route: ActivatedRoute, private pageRoute: PageRoute,
     private router: RouterExtensions, private editTimeService: EditTimeService,
-    private editDateService: EditDateService) { }
+    private editDateService: EditDateService) {
+        this.confirmOptions = [];
+        for (let i = 0; i < this.confirmOptionsList.length; i++) {
+          const item = new SegmentedBarItem();
+          item.title = this.confirmOptionsList[i];
+          this.confirmOptions.push(item);
+        }
+    }
 
   ngOnInit() {
     this.pageRoute.activatedRoute.subscribe(
@@ -52,6 +63,7 @@ export class MatchConfirmationComponent implements OnInit {
     );
     this.time = this.editTimeService.getTime();
     this.date = this.editDateService.getDate();
+    this.selectedIndex = 0;
   }
 
   changeEditMode() {
@@ -72,5 +84,10 @@ export class MatchConfirmationComponent implements OnInit {
 
   onEditDateTap() {
     this.router.navigate(['/edit-date'], { clearHistory: false });
+  }
+
+  onSelectedIndexChange(args) {
+    let segmentedBar = <SegmentedBar>args.object;
+    this.selectedIndex = segmentedBar.selectedIndex;
   }
 }

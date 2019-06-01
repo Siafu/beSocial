@@ -109,21 +109,12 @@
 
     <StackLayout class="hr-light"></StackLayout>
 
-    <StackLayout orientation="horizontal" row="0" class="btn-container">
-        <Button
-            class='btn btn-primary'
-            text="Confirm"
-            width="30%"
-        ></Button>
-        <Button
-            class='btn btn-cancel'
-            text="Postpone"
-            width="30%"
-        ></Button>
-        <Button
-            class='btn'
-            text="MAP"
-            width="30%"
-        ></Button>
+    <StackLayout class="btn-container">
+        <SegmentedBar
+            [items]="confirmOptions"
+            selectedIndex="{{ selectedIndex }}"
+            (selectedIndexChange)="onSelectedIndexChange($event)"
+            class="segmentedBar"
+        ></SegmentedBar>
     </StackLayout>
 </FlexboxLayout>
