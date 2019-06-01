@@ -47,6 +47,6 @@ export class ProfileComponent implements OnInit {
     }
 
     onEditTap() {
-        this.router.navigate(['/profile-edit'], { clearHistory: false });
+        this.router.navigate(['/profile/edit'], { clearHistory: false });
     }
 }
