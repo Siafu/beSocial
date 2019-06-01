@@ -7,15 +7,18 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { InterestEditComponent } from "./profile-edit/interest-edit/interest-edit.component";
+import { MatchConfirmationComponent } from "./meetup/match-confirmation/match-confirmation.component";
 
 const routes: Routes = [
     { path: '', component: AuthComponent },
     { path: 'interest-edit', component: InterestEditComponent },
     { path: 'profile/:mode', component: ProfileEditComponent },
+    { path: '', component: AuthComponent },
+    { path: 'meetup/confirm/:mode', component: MatchConfirmationComponent },
     { path: 'tabs', component: TabsComponent, children:[
         { path: 'home', component: HomeComponent, outlet:'home' },
         { path: 'profile', component: ProfileComponent, outlet: 'profile'},
-        { path: '', redirectTo: '/tabs', pathMatch: 'full' }
+        { path: '', redirectTo: '/tabs', pathMatch: 'full' },
     ]}
 ];
 

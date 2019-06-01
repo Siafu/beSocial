@@ -12,6 +12,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { InterestEditComponent } from './profile-edit/interest-edit/interest-edit.component';
+import { MatchConfirmationComponent } from './meetup/match-confirmation/match-confirmation.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -39,7 +40,8 @@ import { InterestEditComponent } from './profile-edit/interest-edit/interest-edi
         HomeComponent,
         TabsComponent,
         ProfileEditComponent,
-        InterestEditComponent
+        InterestEditComponent,
+        MatchConfirmationComponent
     ],
     providers: [],
     schemas: [

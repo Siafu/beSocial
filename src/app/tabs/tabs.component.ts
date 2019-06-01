@@ -21,7 +21,7 @@ export class TabsComponent implements OnInit {
       this.router.navigate(
           [ { outlets: {
               home: ["home"],
-              profile: ["profile"]
+              profile: ["profile"],
           } }],
           {relativeTo: this.active}
 

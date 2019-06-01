@@ -1,0 +1,119 @@
+<ns-action-bar title="Meeting Details">
+    <NavigationButton text="Back"></NavigationButton>
+    <ActionItem *ngIf="!editMode" ios.position="right" android.position="actionBar" pageTransition="slideLeft" (tap)="changeEditMode()">
+        <Label text="Edit"></Label>
+    </ActionItem>
+</ns-action-bar>
+<FlexboxLayout class="page" alignItems="center" flexDirection="column" justifyContent="space-between" alignContent="Center">
+    <Label horizontalAlignment="center" [text]="meetingInfo.matchedTo.name" style="margin-top: 20px"></Label>
+    <Image height="300px" [src]="meetingInfo.matchedTo.profilePic"></Image>
+
+    <StackLayout class="hr-light"></StackLayout>
+
+    <StackLayout class="edit">
+        <StackLayout orientation="horizontal" class="spacer">
+                <Label
+                    class="header headline"
+                    width="auto"
+                    [text]="'Meeting Details'"
+                ></Label>
+            </StackLayout>
+                
+            
+            <StackLayout orientation="horizontal" class="spacer">
+                <Label
+                    class="label"
+                    width="auto"
+                    text="Date: "
+                ></Label>
+                <Label
+                    *ngIf="!editMode" 
+                    [text]="meetingInfo.meetingDetails.Date"
+                ></Label>
+                <!--<DatePicker *ngIf="editMode"></DatePicker>-->
+            </StackLayout>
+                
+            <StackLayout orientation="horizontal" class="spacer">
+                <Label
+                    class="label"
+                    width="auto"
+                    text="Time: "
+                ></Label>
+                <Label
+                    *ngIf="!editMode" 
+                    width="auto"
+                    [text]="meetingInfo.meetingDetails.Time"
+                ></Label>
+                <!--<TimePicker *ngIf="editMode"></TimePicker>-->
+            </StackLayout>
+                
+            <StackLayout orientation="horizontal" class="spacer">
+                <Label
+                    class="label"
+                    width="auto"
+                    text="Location: "
+                ></Label>
+                <Label
+                    *ngIf="!editMode" 
+                    width="auto"
+                    [text]="meetingInfo.meetingDetails.Location"
+                ></Label>
+                <TextField width="60%" *ngIf="editMode" 
+                    class="input" [(ngModel)]="meetingInfo.meetingDetails.Location"></TextField>
+            </StackLayout>
+            
+        
+            <StackLayout orientation="horizontal" class="spacer">
+                <Label
+                    class="label"
+                    width="auto"
+                    text="Comments: "
+                ></Label>
+                <Label
+                    *ngIf="!editMode" 
+                    width="auto"
+                    [text]="meetingInfo.meetingDetails.Comments"
+                ></Label>
+                <TextField width="60%" *ngIf="editMode" 
+                    class="input" [(ngModel)]="meetingInfo.meetingDetails.Comments"></TextField>
+            </StackLayout>
+    </StackLayout>
+
+    
+    <StackLayout class="hr-light"></StackLayout>
+
+    <StackLayout orientation="horizontal">
+        <Label
+            horizontalAlignment="left"
+            text="ICON 1 "
+        ></Label>
+        <Label
+            horizontalAlignment="center"
+            text="ICON 2 "
+        ></Label>
+        <Label
+            horizontalAlignment="right"
+            text="ICON 3 "
+        ></Label>
+    </StackLayout>
+    
+    <StackLayout class="hr-light"></StackLayout>
+
+    <StackLayout orientation="horizontal" row="0" class="btn-container">
+        <Button
+            class='btn btn-primary'
+            text="Confirm"
+            width="30%"
+        ></Button>
+        <Button
+            class='btn btn-cancel'
+            text="Postpone"
+            width="30%"
+        ></Button>
+        <Button
+            class='btn'
+            text="MAP"
+            width="30%"
+        ></Button>
+    </StackLayout>
+</FlexboxLayout>
