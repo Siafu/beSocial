@@ -19,8 +19,8 @@ import { EditDateService } from '../edit-date.service';
 export class MatchConfirmationComponent implements OnInit {
   meetingInfo = {
     matchedTo: {
-      name: 'Luffy',
-      profilePic: 'https://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/monkey-d-luffy-one-piece-53.3.jpg'
+      name: 'Current meeting location:',
+      profilePic: "~/images/map.png"
     },
     meetingDetails: {
       Date: '05/31/2019',
