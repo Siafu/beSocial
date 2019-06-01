@@ -1,0 +1,21 @@
+.interest-label {
+    color: gray;
+}
+
+.interest-label-selected {
+    color: green;
+}
+
+.add-interest-btn {
+    padding: 20;
+    background-color: transparent;
+    color: blue;
+}
+
+.interest-modal-container {
+    padding-bottom: 20;
+}
+
+.submit-btn {
+    padding: 20;
+}
