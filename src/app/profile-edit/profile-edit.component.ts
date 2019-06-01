@@ -69,10 +69,12 @@ export class ProfileEditComponent implements OnInit {
 
   editOffice() {
     console.log('Edit Office tapped');
-    this.modalDialog.showModal(InterestModalComponent, {
+    /*
+    this.modalDialog.showModal(OfficeModalComponent, {
       fullscreen: true,
       viewContainerRef: this.uiService.getRootVCRef() ? this.uiService.getRootVCRef() : this.viewRef
     });
+    */
   }
 
     onSaveTap() {
