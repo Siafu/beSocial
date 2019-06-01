@@ -1,4 +1,4 @@
-<ActionBar title="Select Meeting Time">
+<ActionBar title="Select Meeting Date">
         <ActionItem
             (tap)="onSaveTap()"
             android.position="actionBarIfRoom"
@@ -9,7 +9,7 @@
     </ActionBar>
 
     <StackLayout class="form-container">
-        <Label class="label" text="Game Date" textWrap="true"></Label>
+        <Label class="label" text="Meeting Date" textWrap="true"></Label>
         <DatePicker
             (loaded)="onPickerLoaded($event)"
             (dateChange)="onDateChanged($event)"
