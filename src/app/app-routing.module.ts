@@ -21,6 +21,7 @@ const routes: Routes = [
     { path: 'user/:id', component: UserDetailComponent },
     { path: 'edit-time', component: EditTimeComponent },
     { path: 'edit-date', component: EditDateComponent },
+    { path: 'meetup/confirm', component: MatchConfirmationComponent },
     { path: 'meetup/confirm/:mode', component: MatchConfirmationComponent },
     { path: 'tabs', component: TabsComponent, children:[
         { path: 'home', component: HomeComponent, outlet:'home' },

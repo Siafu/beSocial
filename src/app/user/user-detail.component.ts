@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from './user';
 import { UserService } from './user.service';
 import { ActivatedRoute } from '@angular/router';
+import { RouterExtensions } from 'nativescript-angular';
 
 @Component({
     selector: "ns-user-detail",
@@ -14,7 +15,8 @@ export class UserDetailComponent implements OnInit {
 
     constructor(
         private userService: UserService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private router: RouterExtensions
     ) {}
 
     ngOnInit(): void {
@@ -22,6 +24,6 @@ export class UserDetailComponent implements OnInit {
         this.user = this.userService.getUser(id);
     }
     onSubmit() {
-        return false;
+         this.router.navigate(["/meetup/confirm"]);
     }
 }
