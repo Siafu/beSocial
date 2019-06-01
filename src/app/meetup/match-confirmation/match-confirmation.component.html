@@ -1,4 +1,4 @@
-<ns-action-bar title="Meeting Details">
+<ns-action-bar title="Meetup Details">
     <NavigationButton text="Back"></NavigationButton>
     <ActionItem *ngIf="!editMode" ios.position="right" android.position="actionBar" pageTransition="slideLeft" (tap)="changeEditMode()">
         <Label text="Edit"></Label>
@@ -8,7 +8,7 @@
     </ActionItem>
 </ns-action-bar>
 <FlexboxLayout class="page" alignItems="center" flexDirection="column" justifyContent="space-between" alignContent="Center">
-    <Label horizontalAlignment="center" [text]="meetingInfo.matchedTo.name" style="margin-top: 20px"></Label>
+    <Label horizontalAlignment="center" text="Current meetup location:" style="margin-top: 20px"></Label>
     <Image height="400px" [src]="meetingInfo.matchedTo.mapPic"></Image>
 
     <StackLayout class="hr-light"></StackLayout>
@@ -104,9 +104,9 @@
     </StackLayout>
 
 
-    <StackLayout class="hr-light"></StackLayout>
+    <!--<StackLayout class="hr-light"></StackLayout>-->
 
-    <StackLayout orientation="horizontal">
+    <!--StackLayout orientation="horizontal">
         <Label
             horizontalAlignment="left"
             text="ICON 1 "
@@ -119,14 +119,14 @@
             horizontalAlignment="right"
             text="ICON 3 "
         ></Label>
-    </StackLayout>
+    </StackLayout>-->
 
     <StackLayout class="hr-light"></StackLayout>
 
     <StackLayout class="btn-container">
         <button class="submit-btn"
             horizontalAlignment="center"
-            text="Submit Meeting Request"
+            text="Submit Meetup Request"
             *ngIf="!editMode"
             [hidden]="true"
         ></button>

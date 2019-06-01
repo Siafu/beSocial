@@ -22,12 +22,12 @@ import { Meeting } from '~/app/meetings/meeting';
 export class MatchConfirmationComponent implements OnInit {
   meetingInfo = {
     matchedTo: {
-      name: 'Current meeting location:',
+      name: 'Current meetup location:',
       mapPic: "~/images/map.png"
     },
     meetingDetails: {
-      Date: '05/31/2019',
-      Time: '3:50pm',
+      Date: '',
+      Time: '',
       Location: 'NYC',
       Comments: 'its a test'
     }

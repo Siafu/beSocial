@@ -12,7 +12,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class MeetingsComponent implements OnInit {
     selectedIndex: number;
-    meetingOptionsList: Array<string> = ["Upcoming Meetings", "Past Meetings"];
+    meetingOptionsList: Array<string> = ["Upcoming Meetups", "Past Meetups"];
     meetingOptions: Array<SegmentedBarItem>;
     meetings: Array<Meeting>;
 
