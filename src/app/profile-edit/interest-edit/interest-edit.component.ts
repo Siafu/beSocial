@@ -46,7 +46,7 @@ export class InterestEditComponent implements OnInit {
     addInterest() {
 
     }
-  onSaveTap() {
-    console.log('Save clicked');
-  }
+    onSaveTap() {
+      console.log('Save clicked');
+    }
 }
