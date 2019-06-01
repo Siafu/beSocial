@@ -1,0 +1,22 @@
+<ActionBar title="Select Meeting Time">
+        <ActionItem
+            (tap)="onSaveTap()"
+            android.position="actionBarIfRoom"
+            ios.position="right"
+            text="Save"
+        ></ActionItem>
+        <NavigationButton text="Back"></NavigationButton>
+    </ActionBar>
+
+    <StackLayout class="form-container">
+        <Label class="label" text="Game Date" textWrap="true"></Label>
+        <DatePicker
+            (loaded)="onPickerLoaded($event)"
+            (dateChange)="onDateChanged($event)"
+            (dayChange)="onDayChanged($event)"
+            (monthChange)="onMonthChanged($event)"
+            (yearChange)="onYearChanged($event)"
+            verticalAlignment="center"
+            class="datepicker"
+        ></DatePicker>
+    </StackLayout>

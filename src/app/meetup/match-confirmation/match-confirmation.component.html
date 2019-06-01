@@ -30,7 +30,12 @@
                     *ngIf="!editMode"
                     [text]="meetingInfo.meetingDetails.Date"
                 ></Label>
-                <!--<DatePicker *ngIf="editMode"></DatePicker>-->
+                <Button
+                    *ngIf="editMode"
+                    text="{{ date }}"
+                    class="edit-time-btn"
+                    (tap)="onEditDateTap()"
+                ></Button>
             </StackLayout>
 
             <StackLayout orientation="horizontal" class="spacer">

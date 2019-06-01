@@ -14,6 +14,7 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { InterestEditComponent } from './profile-edit/interest-edit/interest-edit.component';
 import { MatchConfirmationComponent } from './meetup/match-confirmation/match-confirmation.component';
 import { EditTimeComponent } from './meetup/edit-time/edit-time.component';
+import { EditDateComponent } from './meetup/edit-date/edit-date.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -43,7 +44,8 @@ import { EditTimeComponent } from './meetup/edit-time/edit-time.component';
         ProfileEditComponent,
         InterestEditComponent,
         MatchConfirmationComponent,
-        EditTimeComponent
+        EditTimeComponent,
+        EditDateComponent
     ],
     providers: [],
     schemas: [

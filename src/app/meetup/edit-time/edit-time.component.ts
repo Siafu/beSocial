@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { TimePicker } from "tns-core-modules/ui/time-picker";
 import { RouterExtensions } from "nativescript-angular/router";
 import { EditTimeService } from '../edit-time.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'ns-edit-time',
