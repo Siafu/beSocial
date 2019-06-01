@@ -28,6 +28,7 @@ export class MeetingsComponent implements OnInit {
   ngOnInit() {
     this.selectedIndex = 0;
     this.meetings = this.userService.getUser(this.authService.getUserID()).meetings;
+    console.log(`Component: ${this.meetings}`);
   }
 
   onSelectedIndexChange(args) {

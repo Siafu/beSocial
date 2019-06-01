@@ -21,7 +21,7 @@
                     [text]="'Meeting Details'"
                 ></Label>
         </StackLayout>-->
-        
+
         <StackLayout orientation="horizontal" class="spacer">
             <Label
                 class="label"
@@ -124,12 +124,13 @@
     <StackLayout class="hr-light"></StackLayout>
 
     <StackLayout class="btn-container">
-        <button class="submit-btn"
+        <Button class="submit-btn"
             horizontalAlignment="center"
             text="Submit Meeting Request"
             *ngIf="!editMode"
             [hidden]="true"
-        ></button>
+            (tap)="onSubmitBtn()"
+        ></Button>
         <!--<SegmentedBar
             [items]="confirmOptions"
             selectedIndex="{{ selectedIndex }}"

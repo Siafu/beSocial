@@ -25,7 +25,9 @@
                 <ListView height="450" [items]="meetings">
                     <ng-template let-meeting="item" let-i="index" let-odd="odd" let-even="even">
                         <StackLayout orientation="horizontal" class="list-group-item" height="40">
-                            <Label  [text]="meeting.description"></Label>
+                            <Label  row="0" cols="0"[text]="meeting.name"></Label>
+                            <Label  row="0" cols="1"[text]="meeting.date"></Label>
+                            <Label  row="0" cols="2"[text]="meeting.time"></Label>
                         </StackLayout>
                     </ng-template>
                 </ListView>
