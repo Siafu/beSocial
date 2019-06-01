@@ -12,6 +12,7 @@ import { EditTimeComponent } from "./meetup/edit-time/edit-time.component";
 import { EditDateComponent } from "./meetup/edit-date/edit-date.component";
 import { UserComponent } from "./user/user.component";
 import { UserDetailComponent } from "./user/user-detail.component";
+import { MeetingsComponent } from "./meetings/meetings.component";
 
 const routes: Routes = [
     { path: '', component: AuthComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
     { path: 'tabs', component: TabsComponent, children:[
         { path: 'home', component: HomeComponent, outlet:'home' },
         { path: "user", component: UserComponent, outlet:'user' },
+        { path: "meetings", component: MeetingsComponent, outlet: 'meetings' },
         { path: 'profile', component: ProfileComponent, outlet: 'profile'},
         { path: '', redirectTo: '/tabs', pathMatch: 'full' },
     ]}

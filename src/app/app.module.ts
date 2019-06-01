@@ -17,6 +17,7 @@ import { EditTimeComponent } from './meetup/edit-time/edit-time.component';
 import { EditDateComponent } from './meetup/edit-date/edit-date.component';
 import { UserComponent } from './user/user.component';
 import { UserDetailComponent } from './user/user-detail.component';
+import { MeetingsComponent } from './meetings/meetings.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -49,7 +50,8 @@ import { UserDetailComponent } from './user/user-detail.component';
         EditTimeComponent,
         EditDateComponent,
         UserComponent,
-        UserDetailComponent
+        UserDetailComponent,
+        MeetingsComponent
     ],
     providers: [],
     schemas: [
