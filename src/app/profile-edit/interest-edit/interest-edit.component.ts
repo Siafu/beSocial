@@ -39,10 +39,6 @@ export class InterestEditComponent implements OnInit {
         this.interestOptions[args.index].isSelected = !this.interestOptions[args.index].isSelected;
     }
 
-    onDoneTap() {
-        this.router.navigate(['/tabs'])
-    }
-
     addInterest() {
 
     }
