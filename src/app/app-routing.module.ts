@@ -17,7 +17,7 @@ const routes: Routes = [
     { path: '', component: AuthComponent },
     { path: "user/:id", component: UserDetailComponent },
     { path: 'interest-edit', component: InterestEditComponent },
-    { path: 'profile/:mode', component: ProfileEditComponent },
+    { path: 'user/:id', component: UserDetailComponent },
     { path: 'edit-time', component: EditTimeComponent },
     { path: 'edit-date', component: EditDateComponent },
     { path: 'meetup/confirm/:mode', component: MatchConfirmationComponent },

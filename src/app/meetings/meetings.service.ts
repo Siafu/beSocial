@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Meeting } from './meeting';
+import { User } from '../user/user';
 
 @Injectable({
   providedIn: 'root'
@@ -27,4 +28,9 @@ export class MeetingsService {
     changeMeetings(meetings): void {
         this.meetings = meetings;
     }
+
+    // getMeetingHistoryByUser(user: User): Array<Meeting> {
+    //     return this.meetings.filter((user) => user.id === id)
+    // }
+
 }

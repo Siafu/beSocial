@@ -23,7 +23,7 @@ class names available for styling your app at https://docs.nativescript.org/ui/t
 <GridLayout class="page" rows="auto, auto, auto" cols="auto, auto, auto">
     <ListView [items]="users" class="list-group" row="0" col="0">
       <ng-template let-item="item">
-        <CardView [nsRouterLink]="['/profile', item.id]"
+        <CardView [nsRouterLink]="['/user', item.id]"
         ripple="true" margin="5" class="whiteCard">
           <GridLayout rows="auto, auto, auto" cols="auto, auto, auto">
               <Image
@@ -33,14 +33,14 @@ class names available for styling your app at https://docs.nativescript.org/ui/t
               </Image>
               <Label
                 row="1" col="0"
-                [nsRouterLink]="['/profile', item.id]"
+                [nsRouterLink]="['/user', item.id]"
                 [text]="item.name"
                 class="list-group-item"
                 textAlignment="center"
               ></Label>
               <Label
                 row="2" col="0"
-                [nsRouterLink]="['/profile', item.id]"
+                [nsRouterLink]="['/user', item.id]"
                 [text]="item.title"
                 class="list-group-item"
                 textAlignment="center"
