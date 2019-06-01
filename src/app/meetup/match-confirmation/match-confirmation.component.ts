@@ -68,7 +68,7 @@ export class MatchConfirmationComponent implements OnInit {
     );
     this.updateDate();
     this.updateTime();
-    this.name = "FIX THIS";
+    this.name = "Meetup with Sergio at: ";
     this.time = this.editTimeService.getTime();
     this.date = this.editDateService.getDate();
     this.selectedIndex = 0;
