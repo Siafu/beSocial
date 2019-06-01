@@ -70,3 +70,11 @@
     color: blue;
     background-color: transparent;
 }
+
+.availability-switch {
+    padding: 10;
+}
+
+.label {
+    font-size: 14;
+}

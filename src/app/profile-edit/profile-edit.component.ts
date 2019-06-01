@@ -3,6 +3,8 @@ import {
 } from "tns-core-modules/ui/segmented-bar";
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
 import { RouterExtensions, PageRoute } from "nativescript-angular/router";
+import { Switch } from "tns-core-modules/ui/switch";
+import { EventData } from "tns-core-modules/data/observable";
 import { ModalDialogService } from "nativescript-angular/modal-dialog";
 import { UiService } from "../shared/ui/ui.service";
 
@@ -24,6 +26,7 @@ export class ProfileEditComponent implements OnInit {
         "Disable Notifications"
     ];
     matchOptions: Array<SegmentedBarItem>;
+    isChecked: Boolean;
 
     constructor(
         private router: RouterExtensions,
@@ -42,6 +45,7 @@ export class ProfileEditComponent implements OnInit {
 
     ngOnInit() {
         this.selectedIndex = 0;
+        this.isChecked = true;
         this.pageRoute.activatedRoute.subscribe(activatedRoute => {
             activatedRoute.paramMap.subscribe(paramMap => {
                 console.log(paramMap.get("mode"));
@@ -58,20 +62,15 @@ export class ProfileEditComponent implements OnInit {
         this.selectedIndex = segmentedBar.selectedIndex;
     }
 
-  editInterests() {
-    console.log('Edit Interests tapped');
-    this.router.navigate(['/interest-edit'], { clearHistory: false });
-  }
+    editInterests() {
+        console.log('Edit Interests tapped');
+        this.router.navigate(['/interest-edit'], { clearHistory: false });
+    }
 
-  editOffice() {
-    console.log('Edit Office tapped');
-    /*
-    this.modalDialog.showModal(OfficeModalComponent, {
-      fullscreen: true,
-      viewContainerRef: this.uiService.getRootVCRef() ? this.uiService.getRootVCRef() : this.viewRef
-    });
-    */
-  }
+    onCheckedChange(args: EventData) {
+        let mySwitch = args.object as Switch;
+        this.isChecked = mySwitch.checked; // boolean
+    }
 
     onSaveTap() {
         this.router.navigate(["/tabs"], { clearHistory: true });
