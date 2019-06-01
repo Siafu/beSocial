@@ -184,9 +184,10 @@ export class UserService {
         }
     );
 
-    getUsers(): Array<User> {
-        return this.users;
-    }
+
+getUsers(): Array<User> {
+    return this.users;
+}
 
     getUser(id: number): User {
         return this.users.filter(user => user.id === id)[0];

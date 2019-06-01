@@ -1,8 +1,12 @@
-import { User } from '../user/user';
-
-export interface Meeting {
+export class Meeting {
     id: number;
     name: string;
     date: string;
-    meetWith: User;
+    time: string;
+
+    constructor(name, date, time) {
+        this.name = name;
+        this.date = date;
+        this.time = time;
+    }
 }
