@@ -10,7 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
-import { InterestModalComponent } from './profile/interest-modal/interest-modal.component';
+import { InterestModalComponent } from './profile-edit/interest-modal/interest-modal.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding

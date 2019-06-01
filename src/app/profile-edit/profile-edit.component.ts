@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import {
 } from "tns-core-modules/ui/segmented-bar";
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
@@ -25,13 +25,13 @@ export class ProfileEditComponent implements OnInit {
         "Disable Notifications"
     ];
     matchOptions: Array<SegmentedBarItem>;
-    modalDialog: any;
-    uiService: any;
-    viewRef: any;
 
     constructor(
         private router: RouterExtensions,
-        private pageRoute: PageRoute
+        private pageRoute: PageRoute,
+        private modalDialog: ModalDialogService,
+        private viewRef: ViewContainerRef,
+        private uiService: UiService
     ) {
         this.matchOptions = [];
         for (let i = 0; i < this.matchOptionsList.length; i++) {
