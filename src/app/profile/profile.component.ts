@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import * as utils from "tns-core-modules/utils/utils";
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
 import { RouterExtensions } from "nativescript-angular/router";
+import { UserService } from "../user/user.service";
+import { InterestEditService } from '../profile-edit/interest-edit.service';
+import { Interest } from '../user/interest';
 
 @Component({
   selector: 'ns-profile',
@@ -11,15 +14,18 @@ import { RouterExtensions } from "nativescript-angular/router";
 })
 export class ProfileComponent implements OnInit {
     isEdit: Boolean;
+    userID:number;
     name: string;
     office: string;
     email: string;
-    interests: Array<string>;
+    interests: Array<Interest>;
     selectedIndex: number;
     matchOptionsList: Array<string> = ["Show Notifications", "Disable Notifications"];
     matchOptions: Array<SegmentedBarItem>;
 
-	constructor(private router: RouterExtensions) {
+    constructor(private router: RouterExtensions,
+        private userService: UserService,
+        private interestEditService: InterestEditService) {
         this.matchOptions = [];
         for (let i = 0; i < this.matchOptionsList.length; i++) {
           const item = new SegmentedBarItem();
@@ -30,10 +36,11 @@ export class ProfileComponent implements OnInit {
 
 	ngOnInit() {
         this.isEdit = false;
-        this.name = 'Dennis Nedry';
+        this.userID = this.interestEditService.getUserID();
+        this.name = this.userService.getUser(this.userID).name;
+        this.interests = this.userService.getUser(this.userID).interests;
         this.office = 'New York, NY';
         this.email = 'Dennis.Nedry@jp.com';
-        this.interests = ['Hacking', 'Computers', 'Dinosaur Embryos', 'Biosyn', 'Soda'];
         this.selectedIndex = 0;
 	}
 

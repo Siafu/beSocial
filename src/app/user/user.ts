@@ -1,6 +1,6 @@
-import Interest from './interest';
+import { Interest } from './interest';
 
-export interface User { 
+export interface User {
     id: number;
     name: string;
     title: string;
