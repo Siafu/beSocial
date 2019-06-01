@@ -19,6 +19,22 @@
                 row="1"
                 col="0"
             >
+                <GridLayout
+                    class="availability-switch"
+                    rows="auto, auto, auto"
+                    cols="auto, auto, auto"
+                >
+                    <Label
+                        row="0"
+                        col="0"
+                        text="Available"
+                        textWrap="true"
+                        class="label"
+                    ></Label>
+                    <Switch checked="{{ isChecked }}" (checkedChange)="onCheckedChange($event)" class="m-15" backgroundColor="blue"
+                        row="0" col="1"></Switch>
+                </GridLayout>
+
                 <SegmentedBar
                     [items]="matchOptions"
                     selectedIndex="{{ selectedIndex }}"
