@@ -9,6 +9,7 @@ import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-ba
 import { ActivatedRoute, Params } from '@angular/router';
 import { EditTimeService } from '../edit-time.service';
 import { EditDateService } from '../edit-date.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'ns-match-confirmation',
@@ -20,7 +21,7 @@ export class MatchConfirmationComponent implements OnInit {
   meetingInfo = {
     matchedTo: {
       name: 'Current meeting location:',
-      profilePic: "~/images/map.png"
+      mapPic: "~/images/map.png"
     },
     meetingDetails: {
       Date: '05/31/2019',
@@ -61,6 +62,8 @@ export class MatchConfirmationComponent implements OnInit {
         })
       }
     );
+    this.updateDate();
+    this.updateTime();
     this.time = this.editTimeService.getTime();
     this.date = this.editDateService.getDate();
     this.selectedIndex = 0;
@@ -72,10 +75,12 @@ export class MatchConfirmationComponent implements OnInit {
 
   updateTime() {
     this.time = this.editTimeService.getTime();
+    this.meetingInfo.meetingDetails.Time = this.editTimeService.getTime();
   }
 
   updateDate() {
     this.date = this.editDateService.getDate();
+    this.meetingInfo.meetingDetails.Date = this.editDateService.getDate();
   }
 
   onEditTimeTap() {

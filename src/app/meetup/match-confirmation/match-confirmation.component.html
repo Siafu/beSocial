@@ -3,21 +3,24 @@
     <ActionItem *ngIf="!editMode" ios.position="right" android.position="actionBar" pageTransition="slideLeft" (tap)="changeEditMode()">
         <Label text="Edit"></Label>
     </ActionItem>
+    <ActionItem *ngIf="editMode" ios.position="right" android.position="actionBar" pageTransition="slideLeft" (tap)="changeEditMode()">
+        <Label text="Done"></Label>
+    </ActionItem>
 </ns-action-bar>
 <FlexboxLayout class="page" alignItems="center" flexDirection="column" justifyContent="space-between" alignContent="Center">
     <Label horizontalAlignment="center" [text]="meetingInfo.matchedTo.name" style="margin-top: 20px"></Label>
-    <Image height="400px" [src]="meetingInfo.matchedTo.profilePic"></Image>
+    <Image height="400px" [src]="meetingInfo.matchedTo.mapPic"></Image>
 
     <StackLayout class="hr-light"></StackLayout>
 
     <StackLayout class="edit">
-        <StackLayout orientation="horizontal" class="spacer">
+        <!--<StackLayout orientation="horizontal" class="spacer">
                 <Label
                     class="header headline"
                     width="auto"
                     [text]="'Meeting Details'"
                 ></Label>
-        </StackLayout>
+        </StackLayout>-->
         
         <StackLayout orientation="horizontal" class="spacer">
             <Label
@@ -27,7 +30,7 @@
             ></Label>
             <Label
                 width="auto"
-                text="Luffy for now"
+                text="Luffy"
             ></Label>
         </StackLayout>
 
@@ -123,7 +126,9 @@
     <StackLayout class="btn-container">
         <button class="submit-btn"
             horizontalAlignment="center"
-            text="Submit"
+            text="Submit Meeting Request"
+            *ngIf="!editMode"
+            [hidden]="true"
         ></button>
         <!--<SegmentedBar
             [items]="confirmOptions"
