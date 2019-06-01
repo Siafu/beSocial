@@ -22,10 +22,10 @@
 
         <ScrollView>
             <StackLayout>
-                <ListView height="450" [items]="interests">
-                    <ng-template let-interest="item" let-i="index" let-odd="odd" let-even="even">
+                <ListView height="450" [items]="meetings">
+                    <ng-template let-meeting="item" let-i="index" let-odd="odd" let-even="even">
                         <StackLayout orientation="horizontal" class="list-group-item" height="40">
-                            <Label  [text]="interest.description"></Label>
+                            <Label  [text]="meeting.description"></Label>
                         </StackLayout>
                     </ng-template>
                 </ListView>

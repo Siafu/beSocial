@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Meeting } from './meeting';
+import { UserService } from '../user/user.service';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,9 @@ export class MeetingsService {
     userID: number;
     meetings: Array<Meeting>;
 
+    constructor(private userService: UserService, private authService: AuthService) {
+
+    }
 
     setInitialMeetings(): void {
         this.meetings = [];
@@ -19,9 +24,10 @@ export class MeetingsService {
         return this.meetings;
     }
 
-    insertIntoMeeting(newMeeting): Array<string> {
-        this.meetingOptionsList.push(newMeeting);
-        return this.meetingOptionsList;
+    insertIntoMeeting(newMeeting): Array<Meeting> {
+        this.meetings.push(newMeeting);
+        this.userService.updateUserMeetings(this.authService.getUserID(), this.meetings);
+        return this.meetings;
     }
 
     changeMeetings(meetings): void {
