@@ -61,7 +61,10 @@ export class ProfileEditComponent implements OnInit {
 
   editInterests() {
     console.log('Edit Interests tapped');
-
+    this.modalDialog.showModal(InterestModalComponent, {
+        fullscreen: true,
+        viewContainerRef: this.uiService.getRootVCRef() ? this.uiService.getRootVCRef() : this.viewRef
+      });
   }
 
   editOffice() {
