@@ -6,6 +6,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { RouterExtensions, PageRoute } from "nativescript-angular/router";
 import { TextField } from "tns-core-modules/ui/text-field";
 import { ActivatedRoute, Params } from '@angular/router';
+import { EditTimeService } from '../edit-time.service';
 
 @Component({
   selector: 'ns-match-confirmation',
@@ -29,25 +30,35 @@ export class MatchConfirmationComponent implements OnInit {
 
   private editMode: boolean;
   private isCreating: boolean;
+  private time: string;
 
-  constructor(private route: ActivatedRoute, private pageRoute: PageRoute) { }
+  constructor(private route: ActivatedRoute, private pageRoute: PageRoute,
+    private router: RouterExtensions, private editTimeService: EditTimeService) { }
 
   ngOnInit() {
     this.pageRoute.activatedRoute.subscribe(
       activatedRoute => {
         activatedRoute.paramMap.subscribe(paramMap => {
           if(!paramMap.has('mode')) {
-             
+
           } else {
             this.editMode = paramMap.get('mode') !== 'display';
           }
         })
       }
-    )
+    );
+    this.time = this.editTimeService.getTime();
   }
 
   changeEditMode() {
     this.editMode = !this.editMode;
   }
 
+  updateTime() {
+    this.time = this.editTimeService.getTime();
+  }
+
+  onEditTimeTap() {
+    this.router.navigate(['/edit-time'], { clearHistory: false });
+  }
 }

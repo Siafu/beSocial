@@ -25,3 +25,8 @@ TextField {
 image {
     border-radius: 50%;
 }
+
+.edit-time-btn {
+    color: blue;
+    background-color: transparent;
+}

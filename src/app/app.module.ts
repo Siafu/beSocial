@@ -13,6 +13,7 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { InterestEditComponent } from './profile-edit/interest-edit/interest-edit.component';
 import { MatchConfirmationComponent } from './meetup/match-confirmation/match-confirmation.component';
+import { EditTimeComponent } from './meetup/edit-time/edit-time.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -41,7 +42,8 @@ import { MatchConfirmationComponent } from './meetup/match-confirmation/match-co
         TabsComponent,
         ProfileEditComponent,
         InterestEditComponent,
-        MatchConfirmationComponent
+        MatchConfirmationComponent,
+        EditTimeComponent
     ],
     providers: [],
     schemas: [

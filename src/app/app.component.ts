@@ -11,6 +11,7 @@ import { Subscription } from "rxjs";
 import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { ViewContainerRef } from '@angular/core';
+import { EditTimeService } from './meetup/edit-time.service';
 
 @Component({
     selector: "ns-app",
@@ -24,7 +25,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     constructor(
         private uiService: UiService,
         private changeDetectionRef: ChangeDetectorRef,
-        private vcRef: ViewContainerRef
+        private vcRef: ViewContainerRef,
+        private editTimeService: EditTimeService
     ) {}
 
     ngOnInit() {
@@ -34,6 +36,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
             }
         });
         this.uiService.setRootVCRef(this.vcRef);
+        this.editTimeService.setInitialTime();
     }
 
     ngAfterViewInit() {
