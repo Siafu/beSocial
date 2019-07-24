@@ -1,0 +1,14 @@
+<ActionBar title="Select Meeting Time">
+    <ActionItem
+        (tap)="onSaveTap()"
+        android.position="actionBarIfRoom"
+        ios.position="right"
+        text="Save"
+    ></ActionItem>
+    <NavigationButton text="Back"></NavigationButton>
+</ActionBar>
+
+<StackLayout class="form-container">
+    <Label class="label" text="Meeting Time" textWrap="true"></Label>
+    <TimePicker (loaded)="onTimePickerLoaded($event)" (timeChange)="onTimeChanged($event)" verticalAlignment="center" class="timepicker"></TimePicker>
+</StackLayout>

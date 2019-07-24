@@ -1,0 +1,15 @@
+/* Add mobile styles for the component here.  */
+
+
+.add-meetup-btn {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #093f96;
+    color: white;
+    align-content: center;
+    font-size: 36;
+    font-weight: bold;
+    border: 1;
+    border-color: gray;
+}
