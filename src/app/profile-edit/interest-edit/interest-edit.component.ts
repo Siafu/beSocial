@@ -1,15 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
-
-class Interest {
-    name: string;
-    isSelected: boolean;
-
-    constructor(name: string, isSelected: boolean) {
-        this.name = name;
-        this.isSelected = isSelected;
-    }
-}
+import { InterestOption } from '../interest-list-option';
+import { Interest } from '../../user/interest';
+import { UserService } from '../../user/user.service';
+import { InterestEditService } from '../interest-edit.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'ns-interest-edit',
@@ -18,19 +13,22 @@ class Interest {
   moduleId: module.id,
 })
 export class InterestEditComponent implements OnInit {
-    interestOptions: Array<Interest>;
-    interestOptionsList = ["Games", "Sports", "Books", "TV", "Dinosaur Embryos",
-    "Movies", "Hacking", "Computers", "Kung Fury", "Triceracop"];
+    interestOptions: Array<InterestOption>;
+    interestOptionsList: Array<string>;
+    newInterests: Array<Interest>;
 
-    constructor(private router: RouterExtensions) {
+    constructor(private router: RouterExtensions, private userService: UserService,
+        private interestEditService: InterestEditService,
+        private authService: AuthService) {
 
     }
 
     ngOnInit() {
         this.interestOptions = [];
-
+        this.interestOptionsList = this.interestEditService.getInterestOptionsList();
+        this.newInterests = [];
         for (let i = 0; i < this.interestOptionsList.length; i++) {
-          this.interestOptions.push(new Interest(this.interestOptionsList[i], false));
+          this.interestOptions.push(new InterestOption(this.interestOptionsList[i], false));
         }
     }
 
@@ -40,9 +38,22 @@ export class InterestEditComponent implements OnInit {
     }
 
     addInterest() {
-
+        console.log('Add interest clicked');
     }
+
     onSaveTap() {
       console.log('Save clicked');
+
+      for(let i=0; i < this.interestOptions.length; i++) {
+        if (this.interestOptions[i].isSelected) {
+            let newInterest = new Interest(1, this.interestOptions[i].name);
+            console.log(JSON.stringify(newInterest));
+            this.newInterests.push(newInterest);
+        }
+      }
+
+      this.userService.updateUserInterests(this.authService.getUserID(),
+        this.newInterests);
+      this.router.navigate(['profile/:edit'], { clearHistory: true });
     }
 }

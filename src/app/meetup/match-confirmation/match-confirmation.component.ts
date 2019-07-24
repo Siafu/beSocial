@@ -9,6 +9,9 @@ import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-ba
 import { ActivatedRoute, Params } from '@angular/router';
 import { EditTimeService } from '../edit-time.service';
 import { EditDateService } from '../edit-date.service';
+import { NgIf } from '@angular/common';
+import { MeetingsService } from '../../meetings/meetings.service';
+import { Meeting } from '~/app/meetings/meeting';
 
 @Component({
   selector: 'ns-match-confirmation',
@@ -19,17 +22,18 @@ import { EditDateService } from '../edit-date.service';
 export class MatchConfirmationComponent implements OnInit {
   meetingInfo = {
     matchedTo: {
-      name: 'Luffy',
-      profilePic: 'https://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/monkey-d-luffy-one-piece-53.3.jpg'
+      name: 'Current meetup location:',
+      mapPic: "~/images/map.png"
     },
     meetingDetails: {
-      Date: '05/31/2019',
-      Time: '3:50pm',
+      Date: '',
+      Time: '',
       Location: 'NYC',
       Comments: 'its a test'
     }
   }
 
+  private name: string;
   private editMode: boolean;
   private isCreating: boolean;
   private time: string;
@@ -40,7 +44,8 @@ export class MatchConfirmationComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private pageRoute: PageRoute,
     private router: RouterExtensions, private editTimeService: EditTimeService,
-    private editDateService: EditDateService) {
+    private editDateService: EditDateService,
+    private meetingService: MeetingsService) {
         this.confirmOptions = [];
         for (let i = 0; i < this.confirmOptionsList.length; i++) {
           const item = new SegmentedBarItem();
@@ -61,6 +66,9 @@ export class MatchConfirmationComponent implements OnInit {
         })
       }
     );
+    this.updateDate();
+    this.updateTime();
+    this.name = "Meetup with Sergio at: ";
     this.time = this.editTimeService.getTime();
     this.date = this.editDateService.getDate();
     this.selectedIndex = 0;
@@ -72,10 +80,12 @@ export class MatchConfirmationComponent implements OnInit {
 
   updateTime() {
     this.time = this.editTimeService.getTime();
+    this.meetingInfo.meetingDetails.Time = this.editTimeService.getTime();
   }
 
   updateDate() {
     this.date = this.editDateService.getDate();
+    this.meetingInfo.meetingDetails.Date = this.editDateService.getDate();
   }
 
   onEditTimeTap() {
@@ -89,5 +99,12 @@ export class MatchConfirmationComponent implements OnInit {
   onSelectedIndexChange(args) {
     let segmentedBar = <SegmentedBar>args.object;
     this.selectedIndex = segmentedBar.selectedIndex;
+  }
+
+  onSubmitBtn() {
+    let meeting = new Meeting(this.name, this.date, this.time);
+    console.log(meeting);
+    this.meetingService.insertIntoMeeting(meeting);
+    this.router.navigate(['/tabs'], { clearHistory: true });
   }
 }

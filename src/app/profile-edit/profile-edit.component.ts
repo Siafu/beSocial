@@ -5,7 +5,6 @@ import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-ba
 import { RouterExtensions, PageRoute } from "nativescript-angular/router";
 import { Switch } from "tns-core-modules/ui/switch";
 import { EventData } from "tns-core-modules/data/observable";
-import { ModalDialogService } from "nativescript-angular/modal-dialog";
 import { UiService } from "../shared/ui/ui.service";
 
 @Component({
@@ -27,11 +26,11 @@ export class ProfileEditComponent implements OnInit {
     ];
     matchOptions: Array<SegmentedBarItem>;
     isChecked: Boolean;
+    userID: number;
 
     constructor(
         private router: RouterExtensions,
         private pageRoute: PageRoute,
-        private modalDialog: ModalDialogService,
         private viewRef: ViewContainerRef,
         private uiService: UiService
     ) {
