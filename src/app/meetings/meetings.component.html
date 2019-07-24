@@ -1,0 +1,38 @@
+<ns-action-bar title="Meetups" [hasMenu]="true"></ns-action-bar>
+
+<GridLayout rows="auto, auto, auto" cols="auto, auto, auto">
+    <StackLayout
+        class="meet-status-container"
+        row="0"
+        col="0"
+    >
+        <SegmentedBar
+            [items]="meetingOptions"
+            selectedIndex="{{ selectedIndex }}"
+            (selectedIndexChange)="onSelectedIndexChange($event)"
+            class="segmentedBar"
+        ></SegmentedBar>
+    </StackLayout>
+
+    <StackLayout
+        class="meetings-container"
+        row="1"
+        col="0"
+    >
+
+        <ScrollView>
+            <StackLayout>
+                <ListView height="450" [items]="meetings">
+                    <ng-template let-meeting="item" let-i="index" let-odd="odd" let-even="even">
+                        <StackLayout orientation="horizontal" class="list-group-item" height="40">
+                            <Label  row="0" cols="0"[text]="meeting.name"></Label>
+                            <Label  row="0" cols="1"[text]="meeting.date"></Label>
+                            <Label  row="0" cols="2"[text]="meeting.time"></Label>
+                        </StackLayout>
+                    </ng-template>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+
+</GridLayout>

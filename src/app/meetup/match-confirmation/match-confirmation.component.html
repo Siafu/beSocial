@@ -1,24 +1,38 @@
-<ns-action-bar title="Meeting Details">
+<ns-action-bar title="Meetup Details">
     <NavigationButton text="Back"></NavigationButton>
     <ActionItem *ngIf="!editMode" ios.position="right" android.position="actionBar" pageTransition="slideLeft" (tap)="changeEditMode()">
         <Label text="Edit"></Label>
     </ActionItem>
+    <ActionItem *ngIf="editMode" ios.position="right" android.position="actionBar" pageTransition="slideLeft" (tap)="changeEditMode()">
+        <Label text="Done"></Label>
+    </ActionItem>
 </ns-action-bar>
 <FlexboxLayout class="page" alignItems="center" flexDirection="column" justifyContent="space-between" alignContent="Center">
-    <Label horizontalAlignment="center" [text]="meetingInfo.matchedTo.name" style="margin-top: 20px"></Label>
-    <Image height="300px" [src]="meetingInfo.matchedTo.profilePic"></Image>
+    <Label horizontalAlignment="center" text="Current meetup location:" style="margin-top: 20px"></Label>
+    <Image height="400px" [src]="meetingInfo.matchedTo.mapPic"></Image>
 
     <StackLayout class="hr-light"></StackLayout>
 
     <StackLayout class="edit">
-        <StackLayout orientation="horizontal" class="spacer">
+        <!--<StackLayout orientation="horizontal" class="spacer">
                 <Label
                     class="header headline"
                     width="auto"
                     [text]="'Meeting Details'"
                 ></Label>
-            </StackLayout>
+        </StackLayout>-->
 
+        <StackLayout orientation="horizontal" class="spacer">
+            <Label
+                class="label"
+                width="auto"
+                text="Meeting with: "
+            ></Label>
+            <Label
+                width="auto"
+                text="Sergio"
+            ></Label>
+        </StackLayout>
 
             <StackLayout orientation="horizontal" class="spacer">
                 <Label
@@ -90,9 +104,9 @@
     </StackLayout>
 
 
-    <StackLayout class="hr-light"></StackLayout>
+    <!--<StackLayout class="hr-light"></StackLayout>-->
 
-    <StackLayout orientation="horizontal">
+    <!--StackLayout orientation="horizontal">
         <Label
             horizontalAlignment="left"
             text="ICON 1 "
@@ -105,16 +119,23 @@
             horizontalAlignment="right"
             text="ICON 3 "
         ></Label>
-    </StackLayout>
+    </StackLayout>-->
 
     <StackLayout class="hr-light"></StackLayout>
 
     <StackLayout class="btn-container">
-        <SegmentedBar
+        <Button class="submit-btn"
+            horizontalAlignment="center"
+            text="Submit Meetup Request"
+            *ngIf="!editMode"
+            [hidden]="true"
+            (tap)="onSubmitBtn()"
+        ></Button>
+        <!--<SegmentedBar
             [items]="confirmOptions"
             selectedIndex="{{ selectedIndex }}"
             (selectedIndexChange)="onSelectedIndexChange($event)"
             class="segmentedBar"
-        ></SegmentedBar>
+        ></SegmentedBar>-->
     </StackLayout>
 </FlexboxLayout>

@@ -1,0 +1,78 @@
+/* Add mobile styles for the component here.  */
+.profilePic {
+    width: 150;
+    height: 150;
+    border-radius: 100;
+    margin: 32 32 16 32;
+    border-color: #4db8ff;
+    border-width: 1;
+}
+
+.title-profile {
+    color: #000;
+    font-size: 19;
+    font-weight: bold;
+}
+
+.title-profile-edit {
+    color: gray;
+}
+
+.listImage {
+    border-width: 1;
+    border-color: #fff;
+}
+
+.additional-info {
+    border-radius: 15;
+    background: #eeeeee;
+    padding: 18;
+    width: 85%;
+}
+
+.icon-additional-info {
+    font-size: 17;
+    color: #557AAD;
+    text-align: center;
+    padding-top: 2;
+}
+
+.description-additional-info {
+    font-size: 17;
+    color:#000;
+    margin-left: 8;
+    border-width: 1;
+    border-color: transparent;
+}
+
+.description-additional-info-edit {
+    font-size: 17;
+    color: gray;
+    margin-left: 8;
+    border-width: 1;
+    border-color: transparent;
+}
+
+.interests-container {
+    padding: 10;
+    width: 85%;
+}
+
+.match-pref-container {
+    padding: 10;
+    width: 85%;
+}
+
+.interests-label {
+    color: navy;
+    font-size: 18;
+    padding: 10;
+}
+
+.interests-edit-btn {
+    color: blue;
+    background-color: transparent;
+}
+.submit-btn {
+    width: 85%;
+}

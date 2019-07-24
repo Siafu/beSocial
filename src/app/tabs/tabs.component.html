@@ -1,7 +1,10 @@
-<TabView androidTabsPosition ="bottom"
-            >
-    <StackLayout *tabItem="{title: 'home', iconSource: 'res://home' }">
+<TabView androidTabsPosition ="bottom">
+    <StackLayout *tabItem="{title: 'Home', iconSource: 'res://home' }">
         <page-router-outlet name="home">
+        </page-router-outlet>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Meetups', iconSource: 'res://calendar' }">
+        <page-router-outlet name="meetings">
         </page-router-outlet>
     </StackLayout>
     <StackLayout *tabItem="{title: 'Profile', iconSource: 'res://profile' }">

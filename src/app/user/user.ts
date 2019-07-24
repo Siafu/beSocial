@@ -1,9 +1,12 @@
-import Interest from './interest';
+import { Interest } from './interest';
+import { Meeting } from '../meetings/meeting';
 
-export interface User { 
+export interface User {
     id: number;
     name: string;
     title: string;
-    interests: Array<Interest>
+    email: string;
+    interests?: Array<Interest>;
+    meetings?: Array<Meeting>;
 }
 
